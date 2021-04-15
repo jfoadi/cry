@@ -12,10 +12,11 @@
 #' @return A named list. Each name correspond to a valid field in the log
 #'    header.
 #' @examples
-#' \dontrun{
-#' filename <- "path/to/a/valid/shelxd/shelxd.log"
-#' output <- readSHELXDlog(filename)
-#' }
+#' datadir <- system.file("extdata",package="cry")
+#' filename <- file.path(datadir,"xds00_ascii.hkl")
+#' ltmp <- readSHELXlog(filename, message=FALSE)
+#' print(names(ltmp))
+#'
 #' @export
 
 readSHELXlog <- function(filename)
@@ -23,6 +24,11 @@ readSHELXlog <- function(filename)
   header <- scan(filename, nlines = 3, what = character(), quiet = TRUE)
   logfile <- scan(filename, what = character(), quiet = TRUE)
   # if condition to search for the right SHELX log file.
+  if (length(logfile) == 0)
+  stop("Empty file")
+
+  if (header[3] == "SHELXC")
+  stop("The file is no the correct SHELX format")
 
   if (length(logfile) != 0 && header[3] == "SHELXC")
   {
