@@ -13,8 +13,8 @@
 #'    header.
 #' @examples
 #' datadir <- system.file("extdata",package="cry")
-#' filename <- file.path(datadir,"xds00_ascii.hkl")
-#' ltmp <- readSHELXlog(filename, message=FALSE)
+#' filename <- file.path(datadir,"shelxc.log")
+#' ltmp <- readSHELXlog(filename)
 #' print(names(ltmp))
 #'
 #' @export
@@ -27,7 +27,7 @@ readSHELXlog <- function(filename)
   if (length(logfile) == 0)
   stop("Empty file")
 
-  if (header[3] == "SHELXC")
+  if (header[2] != "+")
   stop("The file is no the correct SHELX format")
 
   if (length(logfile) != 0 && header[3] == "SHELXC")
