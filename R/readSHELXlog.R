@@ -24,11 +24,19 @@ readSHELXlog <- function(filename)
   header <- scan(filename, nlines = 3, what = character(), quiet = TRUE)
   logfile <- scan(filename, what = character(), quiet = TRUE)
   # if condition to search for the right SHELX log file.
-  if (length(logfile) == 0)
-  stop("Empty file")
+  if (length(logfile) == 0) {
+    msg <- "Empty  file"
+    cat(msg)
+    return(NULL)
+  }
 
-  if (header[2] != "+")
-  stop("The file is no the correct SHELX format")
+
+  if (header[2] != "+") {
+    msg <- "The file is no the correct SHELX format"
+    cat(msg)
+    return(NULL)
+  }
+
 
   if (length(logfile) != 0 && header[3] == "SHELXC")
   {
