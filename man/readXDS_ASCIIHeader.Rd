@@ -12,7 +12,9 @@ XDS ASCII file.}
 }
 \value{
 A named list. Each name correspond to a valid field in
-        the xds header.
+        the xds header. If \code{filename} is not a valid XDS
+        ascii file, the function returns `NULL` and prints out
+        a warning message.
 }
 \description{
 This function reads information from the header of an

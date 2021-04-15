@@ -12,7 +12,9 @@ XDS ASCII file.}
 
 \item{message}{A logical variable. If TRUE (default) the
 function prints a message highlighting what is
-included in the xds header.}
+included in the xds header. If \code{filename} is not a valid XDS
+ascii file, the function returns `NULL` and
+prints out a warning message.}
 }
 \value{
 A named list (see details).

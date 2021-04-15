@@ -17,7 +17,9 @@
 #' @param filename A character string. The path to a valid
 #'                 XDS ASCII file.
 #' @return A named list. Each name correspond to a valid field in
-#'         the xds header.
+#'         the xds header. If \code{filename} is not a valid XDS
+#'         ascii file, the function returns `NULL` and prints out
+#'         a warning message.
 #'
 #' @examples
 #'
@@ -38,6 +40,13 @@ readXDS_ASCIIHeader <- function(filename) {
 
   # Select lines starting with '!'
   tmp <- substr(lXDS,1,1)
+  if (length(tmp) == 0) {
+    msg <- "Not a valid XDS ASCII file.\n"
+    cat(msg)
+    close(ff)
+
+    return(NULL)
+  }
   idx <- which(tmp == "!")
   lXDS <- lXDS[idx]
 
@@ -525,7 +534,9 @@ readXDS_ASCIIHeader <- function(filename) {
 #'                 XDS ASCII file.
 #' @param message A logical variable. If TRUE (default) the
 #'                function prints a message highlighting what is
-#'                included in the xds header.
+#'                included in the xds header. If \code{filename} is not a valid XDS
+#'                ascii file, the function returns `NULL` and
+#'                prints out a warning message.
 #' @return A named list (see details).
 #'
 #' @examples
@@ -542,6 +553,9 @@ readXDS_ASCIIHeader <- function(filename) {
 readXDS_ASCII <- function(filename,message =FALSE) {
   # Read header first
   lXDS <- readXDS_ASCIIHeader(filename)
+  if (is.null(lXDS)) {
+    return(NULL)
+  }
 
   # Column names
   cnames <- lXDS$header$RECORD_NAMES
@@ -562,7 +576,7 @@ readXDS_ASCII <- function(filename,message =FALSE) {
   isigi <- lXDS$reflections$IOBS/lXDS$reflections$SIGMA.IOBS.
   msg <- c("\n")
   if (message) {
-    msg <- c(msg,sprintf("File %s read successfully.\n",filename))
+    msg <- c(msg,"File read successfully.\n")
     msg2 <- sprintf("There are %d reflections in this file.\n",nrefs)
     msg <- c(msg,msg2)
     msg <- c(msg,"Here is a summary of the observations:\n")
