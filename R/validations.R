@@ -353,7 +353,7 @@ check_validity <- function(x,y=NULL,message=FALSE) {
 
 #' Validity and compatibility of a cry object of class 'angle'
 #'
-#' An object of class 'angle' is a numeric with logical attribure "rad_flag".
+#' An object of class 'angle' is a numeric with logical attribute "rad_flag".
 #'
 #' @param x Object of class angle.
 #' @param message A logical variable. If TRUE, the function

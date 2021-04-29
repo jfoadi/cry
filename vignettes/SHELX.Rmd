@@ -74,7 +74,7 @@ ggplot(obj_shelxd, aes(CCall, CCweak)) +
 
 
 ## SHELXE
-The funxction `readSHELXlog` when reading log files from SHELXE five in output a list of dataframes. The user can choose the data frame to use for further analysis.
+The function `readSHELXlog` when reading log files from SHELXE five in output a list of dataframes. The user can choose the data frame to use for further analysis.
 ```{r echo=TRUE}
 ## read the two hands log files separately
 filename_i <- file.path(datadir,"shelxe_i.log")

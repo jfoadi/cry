@@ -10,7 +10,7 @@
 #' There are 14 Bravais lattices. They are represented by a two-letter symbol:
 #' aP, mP, mS, oP, oS, oF, oI, tP, tI, hP, hR, cP, cF, cI
 #'
-#' @param bt A two-letter character, denotying the Bravais type.
+#' @param bt A two-letter character, denoting the Bravais type.
 #' @return An object of class "bravais". It is a named list of length 4. The first slot, "bt", is
 #'         the universally-used two-letter symbol. The second, third and fourth slots are, respectively,
 #'         "cr_fam" (the corresponding crystal family), "cr_sys" (the corresponding crystal system) and

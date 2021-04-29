@@ -69,7 +69,7 @@
 #'    data.}
 #'   \item{HISTORY}{A character string vector of variable length.
 #'    Each component is an 80-letter string summarising the steps
-#'    that lead to the curren reflections record. HISTORY can
+#'    that lead to the current reflections record. HISTORY can
 #'    contain a maximum of 30 lines.}
 #'}
 #'

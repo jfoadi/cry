@@ -175,7 +175,7 @@ idx <- order(refs2$IOBS/refs2$SIGMA.IOBS,decreasing=TRUE)
 print(refs2[idx[1:10],])
 ```
 
-To verify that the operation is correct, we can add a new column to the original `refs2` data frame and verify that the previous ordering corresponds, indeed, to decreasing calues of $\mathrm{I/sigI}$:
+To verify that the operation is correct, we can add a new column to the original `refs2` data frame and verify that the previous ordering corresponds, indeed, to decreasing values of $\mathrm{I/sigI}$:
 
 ```{r echo=TRUE}
 # Add an I/sigI column
@@ -234,7 +234,7 @@ hist(refs2$IOBS[idx]/refs2$SIGMA.IOBS[idx],breaks=30,col=2,add=TRUE)
 The above histogram reflects the unfortunate circumstance in structural x-ray crystallography, according to which high resolution data correspond on average to weak intensities.
 
 ## Write data to an XDS file
-The necessity to modify existing XDS ascii files or to simulate new ones (by developers to test software, for example) can be satisfied with the use of the `writeXDS_ASCII` function. The nature and quality of the file produced will depend on the feasibility and accuracy of the information provided. For thi sreason, it is more difficult to write an XDS ascii file for unmerged data because a lot of information of an experimental nature has to be provided so to produce a sensible header.
+The necessity to modify existing XDS ascii files or to simulate new ones (by developers to test software, for example) can be satisfied with the use of the `writeXDS_ASCII` function. The nature and quality of the file produced will depend on the feasibility and accuracy of the information provided. For this reason, it is more difficult to write an XDS ascii file for unmerged data because a lot of information of an experimental nature has to be provided so to produce a sensible header.
 
 In this section the original data from the "6vww_xds_ascii_merged.hkl" file will be truncated to 2 angstroms and written to a new XDS ascii file with a different date.
 

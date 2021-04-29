@@ -19,7 +19,7 @@
 #' \describe{
 #'   \item{H}{Miller index}
 #'   \item{S}{Inverse resolution (1/angstroms)}
-#'   \item{J}{Reflectionn intensity}
+#'   \item{J}{Reflection intensity}
 #'   \item{F}{Amplitude of a structure factor}
 #'   \item{D}{Anomalous difference}
 #'   \item{Q}{Standard deviation of J, F, D}
@@ -35,7 +35,7 @@
 #'   \item{I}{Any other integer}
 #'   \item{R}{Any other real}
 #' }
-#' More vaues can become available in a future release.
+#' More values can become available in a future release.
 #'
 #' @param ruc An object of class "rec_unit_cell" (which represents
 #'        a reciprocal unit cell).

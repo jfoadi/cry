@@ -15,7 +15,7 @@
 #' \itemize{
 #'   \item{1) Space group number}
 #'   \item{2) Hall symbol (e.g. ' P 2yb (z,x,y)')}
-#'   \item{3) Extended Hermann-Maguin symbol (e.g. 'P 1 1 21')}
+#'   \item{3) Extended Hermann-Mauguin symbol (e.g. 'P 1 1 21')}
 #' }
 #' If more than one setting is implied in an ambiguous way in the input value,
 #' then the first setting will be selected by default for the output value, unless
@@ -83,7 +83,7 @@ translate_SG <- function(value,SG_in="number",SG_out="xHM",set=1) {
 #' and many other common occurrences in crystallography. This function returns a named
 #' list with human-readable character strings which detail key symmetry information.
 #'
-#' @param SG A character string. The extended Hermann-Maguin symbol (e.g. 'P 1 1 21')
+#' @param SG A character string. The extended Hermann-Mauguin symbol (e.g. 'P 1 1 21')
 #' @return infostring A named list with fields corresponding to those in the CCP4 symmetry
 #'  library. The fields' name are:
 #'  \itemize{
@@ -103,7 +103,7 @@ translate_SG <- function(value,SG_in="number",SG_out="xHM",set=1) {
 #'     setting)}
 #'    \item{\strong{MAPASU_NONZ} non-origin based real space asymmetric uni (with respect to
 #'     current setting)}
-#'    \item{\strong{CESHIRE} Cheshire cell (with respect to standard setting)}
+#'    \item{\strong{CHESHIRE} Cheshire cell (with respect to standard setting)}
 #'    \item{\strong{SYMOP} list of primitive symmetry operators}
 #'    \item{\strong{CENOP} list of centering operators}
 #'  }
@@ -166,7 +166,7 @@ extract_symmetry_info <- function(SG) {
 #' associated with P 21 21 21 are "symop x,y,z", "symop -x+1/2,-y,z+1/2", "symop x+1/2,-y+1/2,-z",
 #' "symop -x,y+1/2,-z+1/2".
 #'
-#' @param SG A character string. The extended Hermann-Maguin symbol (e.g. 'P 1 1 21')
+#' @param SG A character string. The extended Hermann-Mauguin symbol (e.g. 'P 1 1 21')
 #' @return op_xyz_list A named list made of two vectors. The first vector, SYMOP, contains strings
 #'   describing the symmetry operators. The second vector, CENOP, contains strings describing the
 #'   centring of the unit cell.
@@ -421,7 +421,7 @@ op_xyz_list_to_matrix_list <- function(op_xyz_list)
 #' produced can be cloned into a new and shifted set translated of an amount represented by a
 #' \eqn{3\times 1} centring vector.
 #'
-#' @param SG A character string. The extended Hermann-Maguin symbol (e.g. 'P 1 1 21')
+#' @param SG A character string. The extended Hermann-Mauguin symbol (e.g. 'P 1 1 21')
 #' @return mat_ops_list A named list consisting of 3 lists. The first list, PG, contains
 #' \eqn{3\times 3} point group matrices; the second list, T, contains the same number of
 #' \eqn{3\times 1} translation vectors. The first matrix is always the identity matrix, the first
@@ -460,7 +460,7 @@ syminfo_to_matrix_list <- function(SG)
 #' each one as a character string starting with 'SYMM'. These are the common crystallographic
 #' symmetry operations.
 #'
-#' @param SG A character string. The extended Hermann-Maguin symbol (e.g. 'P 1 1 21')
+#' @param SG A character string. The extended Hermann-Mauguin symbol (e.g. 'P 1 1 21')
 #' @return Symm_string A character vector whose components are strings starting by 'SYMM'
 #'  and containing the symmetry operations of the given group in human-readable form.
 #'
@@ -549,16 +549,16 @@ full_symm_strings <- function(SG)
 }
 
 
-#' Correct spelling for Herman-Maguin space groups symbols
+#' Correct spelling for Herman-Mauguin space groups symbols
 #'
 #' The commonly-used spelling of a crystallographic space group does not match the correct definition
-#' given by the Herman-Maguin symbols which define all space groups in a unique and precise way. This
-#' function attempt to translate a tentative string into a possible Herman-Maguin symbol, if it finds
-#' one. If the input string is already in the extended Herman-Maguin form, the same string is returned
+#' given by the Herman-Mauguin symbols which define all space groups in a unique and precise way. This
+#' function attempt to translate a tentative string into a possible Herman-Mauguin symbol, if it finds
+#' one. If the input string is already in the extended Herman-Mauguin form, the same string is returned
 #' as output.
 #'
 #' @param sym_xHM A character string. The space group symbol in its commonly-used spelling.
-#' @return SG A character string. The extended Hermann-Maguin symbol (e.g. 'P 1 1 21').
+#' @return SG A character string. The extended Hermann-Mauguin symbol (e.g. 'P 1 1 21').
 #'
 #' @examples
 #' # P21
