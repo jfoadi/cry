@@ -11,7 +11,7 @@
 data. The package includes functions to read/write data from/to some of
 the file mostly used in software for structural crystallography. Current
 entry include the `readMTZ` function to read MTZ files (see
-[CCP4](http://www.ccp4.ac.uk)) and the corresponding `writeMTZ`. There
+[CCP4](https://www.ccp4.ac.uk)) and the corresponding `writeMTZ`. There
 are also `readCIF`, `readpd_rtv` and `readSF_CIF` to read files in CIF
 formats (Crystallographic Information Framework, see [IUCr
 page](https://www.iucr.org/resources/cif)). Users are welcome to suggest
