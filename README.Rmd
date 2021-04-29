@@ -19,17 +19,13 @@ knitr::opts_chunk$set(
 
 *cry* is an R package to make it easier dealing with crystallographic data. The package includes functions to read/write
 data from/to some of the file mostly used in software for
-structural crystallography. Current entry are a `readMTZ` function
+structural crystallography. Current entry include the `readMTZ` function
 to read MTZ files (see [CCP4](http://www.ccp4.ac.uk)) and the
-corresponding `writeMTZ`. Or, `readCIF` and `writeCIF` to read and
-write files in CIF format (Crystallographic Information Framework,
-see [IUCr page](https://www.iucr.org/resources/cif)). Users are
-welcome to suggest inclusions of different (not currently available) formats they might need for specific tasks and/or
-analysis.
+corresponding `writeMTZ`. There are also `readCIF`, `readpd_rtv` and `readSF_CIF` to read files in CIF formats (Crystallographic Information Framework, see [IUCr page](https://www.iucr.org/resources/cif)). Users are welcome to suggest inclusions of different (not currently available) formats they might need for specific tasks and/or analysis.
 
 *cry* includes also several functions to perform the most common
 and routine crystallographic calculations, many of them involving
-the crystallographic symmetry. The main purpose of these functions
+crystallographic symmetry. The main purpose of these functions
 is to enable users to investigate specific issues without having to
 resort to external packages and thus carrying the analysis through
 without having to abandon the R platform.
@@ -50,9 +46,7 @@ devtools::install_github("jfoadi/cry")
 ```
 ## Example
 
-This is a simple example in which a CIF file containing structure factors is read and a part
-of its data used for statistical analysis. The file is included
-as example file in *cry* and is called *1dei-sf.cif*. The first
+This is a simple example in which a CIF file containing structure factors is read and a part of its data used for statistical analysis. The file is included as example file in *cry* and is called *1dei-sf.cif*. The first
 task is to import the data in R.
 
 ```{r echo=TRUE}
@@ -107,7 +101,3 @@ quantity and a field `STD` reporting the corresponding experimental error. Not a
 further analysis within R. The `STD` field mirrors `VAL`, but with
 the experimental errors counterparts, if available, otherwise it
 is `NULL`, as in the case here reported.
-
-## Reference
-
-To be added ...

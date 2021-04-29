@@ -10,16 +10,16 @@
 *cry* is an R package to make it easier dealing with crystallographic
 data. The package includes functions to read/write data from/to some of
 the file mostly used in software for structural crystallography. Current
-entry are a `readMTZ` function to read MTZ files (see
-[CCP4](http://www.ccp4.ac.uk)) and the corresponding `writeMTZ`. Or,
-`readCIF` and `writeCIF` to read and write files in CIF format
-(Crystallographic Information Framework, see [IUCr
+entry include the `readMTZ` function to read MTZ files (see
+[CCP4](http://www.ccp4.ac.uk)) and the corresponding `writeMTZ`. There
+are also `readCIF`, `readpd_rtv` and `readSF_CIF` to read files in CIF
+formats (Crystallographic Information Framework, see [IUCr
 page](https://www.iucr.org/resources/cif)). Users are welcome to suggest
 inclusions of different (not currently available) formats they might
 need for specific tasks and/or analysis.
 
 *cry* includes also several functions to perform the most common and
-routine crystallographic calculations, many of them involving the
+routine crystallographic calculations, many of them involving
 crystallographic symmetry. The main purpose of these functions is to
 enable users to investigate specific issues without having to resort to
 external packages and thus carrying the analysis through without having
@@ -109,7 +109,3 @@ The `VAL` field is an R data frame that makes these data suitable to
 further analysis within R. The `STD` field mirrors `VAL`, but with the
 experimental errors counterparts, if available, otherwise it is `NULL`,
 as in the case here reported.
-
-## Reference
-
-To be added …
