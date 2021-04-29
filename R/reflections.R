@@ -255,14 +255,14 @@ readMTZ <- function(filename,message=FALSE) {
 #'                     Names and types depend on
 #'                     the type of experiment (more information
 #'                     on this can be found at
-#'                     \href{http://www.ccp4.ac.uk}{CCP4}.)
+#'                     \href{https://www.ccp4.ac.uk}{CCP4}.)
 #' @param filename A character string. The path to a valid mtz
 #'                 file. If a file with the same name exists, it
 #'                 will be deleted.
 #' @param title A character string. The character string
 #'              associated with the TITLE keyword in an MTZ file.
 #'              This feature makes it easy to quickly identify the
-#'              data file in \href{http://www.ccp4.ac.uk}{CCP4}
+#'              data file in \href{https://www.ccp4.ac.uk}{CCP4}
 #'              programs. Default (NULL) is for the output file
 #'              to have the same title as the input file.
 #' @return This function does not return any R object. It outputs

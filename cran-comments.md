@@ -11,6 +11,7 @@ Carried out from within RStudio.
 No ERRORS.
 No WARNINGS.
 No NOTES.
+This is the first submission.
 
 ## Downstream dependencies
-Not applicable. First release.
+There are currently no downstream dependencies for this package.
