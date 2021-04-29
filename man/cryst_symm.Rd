@@ -23,7 +23,7 @@ specified by the xHM symbol.}
 An object of class "cryst_symm". It is a named list of length 4. The names are, "SG",
  "PG", "T" and "C".
 \itemize{
- \item{1) SG. This is a string containing the correct extended Hermann-Mauguin sybol.}
+ \item{1) SG. This is a string containing the correct extended Hermann-Mauguin symbol.}
  \item{2) PG. This is a list whose elements are all the \eqn{3\times 3} matrices forming
               the point-group part of the symmetry transformation.}
  \item{3) T. This is a list whose elements are all the \eqn{3\times 1} vectors forming

@@ -7,7 +7,7 @@
 syminfo_to_matrix_list(SG)
 }
 \arguments{
-\item{SG}{A character string. The extended Hermann-Maguin symbol (e.g. 'P 1 1 21')}
+\item{SG}{A character string. The extended Hermann-Mauguin symbol (e.g. 'P 1 1 21')}
 }
 \value{
 mat_ops_list A named list consisting of 3 lists. The first list, PG, contains

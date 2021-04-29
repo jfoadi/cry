@@ -7,7 +7,7 @@
 bravais(bt = NULL)
 }
 \arguments{
-\item{bt}{A two-letter character, denotying the Bravais type.}
+\item{bt}{A two-letter character, denoting the Bravais type.}
 }
 \value{
 An object of class "bravais". It is a named list of length 4. The first slot, "bt", is

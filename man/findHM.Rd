@@ -2,7 +2,7 @@
 % Please edit documentation in R/symmetry.R
 \name{findHM}
 \alias{findHM}
-\title{Correct spelling for Herman-Maguin space groups symbols}
+\title{Correct spelling for Herman-Mauguin space groups symbols}
 \usage{
 findHM(sym_xHM)
 }
@@ -10,13 +10,13 @@ findHM(sym_xHM)
 \item{sym_xHM}{A character string. The space group symbol in its commonly-used spelling.}
 }
 \value{
-SG A character string. The extended Hermann-Maguin symbol (e.g. 'P 1 1 21').
+SG A character string. The extended Hermann-Mauguin symbol (e.g. 'P 1 1 21').
 }
 \description{
 The commonly-used spelling of a crystallographic space group does not match the correct definition
-given by the Herman-Maguin symbols which define all space groups in a unique and precise way. This
-function attempt to translate a tentative string into a possible Herman-Maguin symbol, if it finds
-one. If the input string is already in the extended Herman-Maguin form, the same string is returned
+given by the Herman-Mauguin symbols which define all space groups in a unique and precise way. This
+function attempt to translate a tentative string into a possible Herman-Mauguin symbol, if it finds
+one. If the input string is already in the extended Herman-Mauguin form, the same string is returned
 as output.
 }
 \examples{

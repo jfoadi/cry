@@ -7,7 +7,7 @@
 full_symm_strings(SG)
 }
 \arguments{
-\item{SG}{A character string. The extended Hermann-Maguin symbol (e.g. 'P 1 1 21')}
+\item{SG}{A character string. The extended Hermann-Mauguin symbol (e.g. 'P 1 1 21')}
 }
 \value{
 Symm_string A character vector whose components are strings starting by 'SYMM'

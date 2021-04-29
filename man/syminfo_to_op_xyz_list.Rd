@@ -7,7 +7,7 @@
 syminfo_to_op_xyz_list(SG)
 }
 \arguments{
-\item{SG}{A character string. The extended Hermann-Maguin symbol (e.g. 'P 1 1 21')}
+\item{SG}{A character string. The extended Hermann-Mauguin symbol (e.g. 'P 1 1 21')}
 }
 \value{
 op_xyz_list A named list made of two vectors. The first vector, SYMOP, contains strings

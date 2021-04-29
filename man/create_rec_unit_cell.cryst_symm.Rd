@@ -19,7 +19,7 @@ An object of class "rec_unit_cell". It is a named list
         of the corresponding unit cell. The default unit cell
         parameters are a=10, b=20, c=15, alpha=70, beta=80,
         gamma=100. When constrains due to symmetry are
-        required, b and c might be equalled to a, alpha, beta
+        required, b and c might be equaled to a, alpha, beta
         and gamma might be set to 90, gamma might be set to
         120 and the three angles might be set equal to each
         other.

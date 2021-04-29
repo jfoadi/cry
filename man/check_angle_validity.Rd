@@ -18,7 +18,7 @@ ans A logical value. TRUE means that the input is
             a valid object of class 'angle'.
 }
 \description{
-An object of class 'angle' is a numeric with logical attribure "rad_flag".
+An object of class 'angle' is a numeric with logical attribute "rad_flag".
 }
 \examples{
 # Create an object of class angle

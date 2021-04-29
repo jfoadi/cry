@@ -49,7 +49,7 @@ Possible formats are:
 \itemize{
   \item{1) Space group number}
   \item{2) Hall symbol (e.g. ' P 2yb (z,x,y)')}
-  \item{3) Extended Hermann-Maguin symbol (e.g. 'P 1 1 21')}
+  \item{3) Extended Hermann-Mauguin symbol (e.g. 'P 1 1 21')}
 }
 If more than one setting is implied in an ambiguous way in the input value,
 then the first setting will be selected by default for the output value, unless

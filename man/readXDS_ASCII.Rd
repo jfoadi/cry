@@ -26,7 +26,7 @@ and \emph{reflections} (see details further down).
 }
 \details{
 This function reads in all data from an XDS_ASCII data file
-and organises tham into a named list. The list's name are:
+and organises them into a named list. The list's name are:
 \describe{
   \item{processing_info}{This list component includes three
         logical variables, MERGE, FRIEDEL and PROFILE. Their

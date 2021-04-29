@@ -7,7 +7,7 @@
 extract_symmetry_info(SG)
 }
 \arguments{
-\item{SG}{A character string. The extended Hermann-Maguin symbol (e.g. 'P 1 1 21')}
+\item{SG}{A character string. The extended Hermann-Mauguin symbol (e.g. 'P 1 1 21')}
 }
 \value{
 infostring A named list with fields corresponding to those in the CCP4 symmetry
@@ -29,7 +29,7 @@ infostring A named list with fields corresponding to those in the CCP4 symmetry
     setting)}
    \item{\strong{MAPASU_NONZ} non-origin based real space asymmetric uni (with respect to
     current setting)}
-   \item{\strong{CESHIRE} Cheshire cell (with respect to standard setting)}
+   \item{\strong{CHESHIRE} Cheshire cell (with respect to standard setting)}
    \item{\strong{SYMOP} list of primitive symmetry operators}
    \item{\strong{CENOP} list of centering operators}
  }
