@@ -9,14 +9,17 @@
 #' @param message A logical variable. If TRUE (default) the function prints
 #'    a message highlighting what is included in the cif file.
 #' @return A named list. Each name correspond to a valid field in the cif.
+#'
 #' @examples
-#' #filename <- "/path_to_file/example.cif"
-#' #lcif <- readCIF(filename)
-#' #print(names(lcif))
-#' #print(lcif$INTRO$CELL)
-#' #print(lcif$INTRO$HALL)
-#' #print(lcif$INTRO$HM)
-#' #print(lcif$SYMM)
+#' datadir <- system.file("extdata",package="cry")
+#' filename <- file.path(datadir,"AMS_DATA.cif")
+#' lCIF <- readCIF(filename)
+#' print(names(lCIF))
+#' print(lCIF$INTRO$CELL)
+#' print(lCIF$INTRO$HALL)
+#' print(lCIF$INTRO$HM)
+#' print(lCIF$SYMM)
+#'
 #' @export
 readCIF <- function(filename, message=FALSE){
   f <- file(filename)

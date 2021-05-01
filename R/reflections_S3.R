@@ -330,6 +330,10 @@ merged_reflections <- function(ruc=NULL,csym=NULL,
 #'
 #' @param x An object of class "merged_reflections".
 #' @param ... Additional arguments passed to the print methods
+#' @return No values. A message is displayed which includes
+#'         information on the reflections contained in this object
+#'         and the crystal structure they relate to.
+#'
 #' @examples
 #' # Create a default 'merged_reflections' object
 #' mrefs <- merged_reflections()

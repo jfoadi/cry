@@ -12,8 +12,12 @@
 #'
 #' The unit_cell object can be created starting from specific objects, files, etc.
 #'
-#' @param a An object used to select a method.
+#' @param a An object or objects used to select a method. These can be
+#'          cell parameters, an object of class rec_unit_cell, etc.
 #' @param ... Further arguments passed to or from other methods.
+#' @return An object of class "unit_cell". It is a named list of length 6 whose
+#'         last three slots are of class "angle".
+#'
 #' @examples
 #' # Create a unit_cell in default (no arguments)
 #' uc <- create_unit_cell()
@@ -31,8 +35,13 @@ create_unit_cell <- function(a,...) UseMethod("create_unit_cell")
 #'
 #' The rec_unit_cell object can be created starting from specific objects, files, etc.
 #'
-#' @param ar An object used to select a method.
+#' @param ar An object or objects used to select a method. These can be
+#'           reciprocal unit cell parameters, an object of class
+#'           rec_unit_cell, etc.
 #' @param ... Further arguments passed to or from other methods.
+#' @return An object of class "rec_unit_cell". It is a named list of length 6 whose
+#'         last three slots are of "angle" class.
+#'
 #' @examples
 #' # Create a rec_unit_cell in default (no arguments)
 #' ruc <- create_rec_unit_cell()
@@ -46,8 +55,12 @@ create_rec_unit_cell <- function(ar,...) UseMethod("create_rec_unit_cell")
 #' The volume of a unit cell and a reciprocal unit cell can be calculated starting
 #' from specific objects, files, etc.
 #'
-#' @param x An object used to select a method.
+#' @param x An object used to select a method. Either an object of class
+#'          unit_cell or an object of class rec_unit_cell.
 #' @param ... Further arguments passed to or from other methods.
+#' @return V A real number. The volume (in angstroms^3 or angstroms^{-3})
+#'           of the input unit cell or reciprocal unit cell.
+#'
 #' @examples
 #' # Calculate the volume of a unit cell
 #' uc <- unit_cell(20)
@@ -68,6 +81,17 @@ calculate_cell_volume <- function(x,...) UseMethod("calculate_cell_volume")
 #'
 #' @param ruc An object used to select a method.
 #' @param ... Further arguments passed to or from other methods.
+#' @return mrefs An object of class "merged_reflections". It is a named
+#'         list of length 4 whose names are:
+#'         \describe{
+#'           \item{ruc}{An object of class "rec_unit_cell".}
+#'           \item{csym}{An object of class "cryst_symm".}
+#'           \item{records}{A data frame containing the data.}
+#'           \item{dtypes}{A character vector containing the
+#'                 type of data (Miller indices, structure
+#'                 factors, etc).}
+#'         }
+#'
 #' @examples
 #' # Create a default merged_reflections object (no arguments)
 #' mrefs <- create_merged_reflections()

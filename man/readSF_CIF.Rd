@@ -19,11 +19,12 @@ A named list. Each name correspond to a valid field in the SF cif.
 Reads and output an CIF file
 }
 \examples{
-#filename <- "/path_to_file/example.cif"
-#lcif <- readSF_CIF(filename)
-#print(names(lcif))
-#print(lcif$INTRO$CELL)
-#print(lcif$INTRO$HALL)
-#print(lcif$INTRO$HM)
-#print(lcif$REFL)
+datadir <- system.file("extdata",package="cry")
+filename <- file.path(datadir,"1dei-sf.cif")
+lCIF <- readSF_CIF(filename)
+print(names(lCIF))
+print(lCIF$INTRO$CELL)
+print(lCIF$INTRO$HALL)
+print(lCIF$INTRO$HM)
+print(lCIF$REFL)
 }

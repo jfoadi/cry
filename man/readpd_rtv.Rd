@@ -20,11 +20,13 @@ A named list. Each name correspond to a valid field in the powder
 Reads and output an CIF file
 }
 \examples{
-#filename <- "/path_to_file/example.rtv"
-#lcif <- readpd_rtv(filename)
-#print(names(lcif))
-#print(lcif$INTRO$CELL)
-#print(lcif$INTRO$HALL)
-#print(lcif$INTRO$HM)
-#print(lcif$REFL)
+datadir <- system.file("extdata",package="cry")
+filename <- file.path(datadir,"e-65-00i60-Isup2.rtv")
+lCIF <- readpd_rtv(filename)
+print(names(lCIF))
+print(lCIF$INTRO$CELL)
+print(lCIF$INTRO$HALL)
+print(lCIF$INTRO$HM)
+print(lCIF$REFL)
+
 }

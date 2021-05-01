@@ -11,6 +11,18 @@ create_merged_reflections(ruc, ...)
 
 \item{...}{Further arguments passed to or from other methods.}
 }
+\value{
+mrefs An object of class "merged_reflections". It is a named
+        list of length 4 whose names are:
+        \describe{
+          \item{ruc}{An object of class "rec_unit_cell".}
+          \item{csym}{An object of class "cryst_symm".}
+          \item{records}{A data frame containing the data.}
+          \item{dtypes}{A character vector containing the
+                type of data (Miller indices, structure
+                factors, etc).}
+        }
+}
 \description{
 The merged_reflections object can be created starting from
 specific objects, files, etc.

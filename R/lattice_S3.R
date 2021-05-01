@@ -126,6 +126,9 @@ bravais <- function(bt=NULL) {
 #'
 #' @param x An object of class "bravais".
 #' @param ... Additional arguments passed to the print methods
+#' @return No values. A message is displayed which includes
+#'         information on the Bravais lattice.
+#'
 #' @examples
 #' # Create a triclinic Bravais lattice
 #' bt <- bravais()

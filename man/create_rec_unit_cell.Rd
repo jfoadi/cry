@@ -7,9 +7,15 @@
 create_rec_unit_cell(ar, ...)
 }
 \arguments{
-\item{ar}{An object used to select a method.}
+\item{ar}{An object or objects used to select a method. These can be
+reciprocal unit cell parameters, an object of class
+rec_unit_cell, etc.}
 
 \item{...}{Further arguments passed to or from other methods.}
+}
+\value{
+An object of class "rec_unit_cell". It is a named list of length 6 whose
+        last three slots are of "angle" class.
 }
 \description{
 The rec_unit_cell object can be created starting from specific objects, files, etc.

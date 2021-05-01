@@ -7,9 +7,14 @@
 create_unit_cell(a, ...)
 }
 \arguments{
-\item{a}{An object used to select a method.}
+\item{a}{An object or objects used to select a method. These can be
+cell parameters, an object of class rec_unit_cell, etc.}
 
 \item{...}{Further arguments passed to or from other methods.}
+}
+\value{
+An object of class "unit_cell". It is a named list of length 6 whose
+        last three slots are of class "angle".
 }
 \description{
 The unit_cell object can be created starting from specific objects, files, etc.

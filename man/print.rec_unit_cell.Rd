@@ -11,6 +11,10 @@
 
 \item{...}{Additional arguments passed to the print methods}
 }
+\value{
+No values. A message is displayed which includes
+        information on the reciprocal unit cell.
+}
 \description{
 The values are displayed in 1/angstroms and degrees
 }
