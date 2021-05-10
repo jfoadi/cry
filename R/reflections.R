@@ -79,6 +79,7 @@
 #'    Default value is \code{message=FALSE}.
 #' @return A named list. Each name correspond to a valid field in the mtz
 #'    header (see details).
+#'
 #' @examples
 #' datadir <- system.file("extdata",package="cry")
 #' filename <- file.path(datadir,"1dei_phases.mtz")

@@ -3,10 +3,10 @@
 #
 # Functions connected to reflections data.
 
-#' Reads and output an CIF file
+#' Reads and output a CIF file for powder diffraction
 #'
 #' @param filename A character string. The path to a valid CIF file.
-#' @param messages A logical variable. If TRUE (default) the function prints
+#' @param message A logical variable. If TRUE (default) the function prints
 #'    a message highlighting what is included in the cif file.
 #' @return A named list. Each name correspond to a valid field in the powder
 #'    diffraction Rietveld processed CIF.
@@ -22,7 +22,7 @@
 #' print(lCIF$REFL)
 #'
 #' @export
-readpd_rtv <- function(filename, messages=FALSE){
+readpd_rtv <- function(filename,message=FALSE){
   f <- file(filename)
   lcif <- readLines(f,warn=FALSE)
   c_lcif <- lcif[!grepl('^#|^.*#', lcif)]
@@ -38,6 +38,19 @@ readpd_rtv <- function(filename, messages=FALSE){
   reflections <- if (is.na(nanona(reflection)) == FALSE) clean(r_peakreflns(nanona(reflection))) else NULL
   CIF = list(HEADER=intro,DIFF=diffractions,REFL_PEAK=reflections)
   close(f)
+  nrefs <- length(reflections$VAL$F_meas_au)
+  fmeas <- as.numeric(reflections$VAL$F_meas_au)
+  msg <- c("\n")
+  if (message) {
+    msg <- c(msg,sprintf("File %s read successfully.\n",filename))
+    msg2 <- sprintf("There are %d reflections in this file.\n",nrefs)
+    msg <- c(msg,msg2)
+    msg <- c(msg,"Here is a summary of the observations:\n")
+    msg <- c(msg,"\n")
+    cat(msg)
+    print(summary(fmeas))
+  }
+
   return(CIF)
 }
 

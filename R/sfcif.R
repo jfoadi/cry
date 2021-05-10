@@ -38,6 +38,18 @@ readSF_CIF <- function(filename, message=FALSE){
   reflections <- if (is.na(nanona(reflection)) == FALSE) clean(r_reflections(nanona(reflection))) else NULL
   CIF = list(HEADER=intro,SYMM=symm,REFL=reflections)
   close(f)
+  nrefs <- length(reflections$VAL$F_meas_au)
+  fmeas <- as.numeric(reflections$VAL$F_meas_au)
+  msg <- c("\n")
+  if (message) {
+    msg <- c(msg,sprintf("File %s read successfully.\n",filename))
+    msg2 <- sprintf("There are %d reflections in this file.\n",nrefs)
+    msg <- c(msg,msg2)
+    msg <- c(msg,"Here is a summary of the observations:\n")
+    msg <- c(msg,"\n")
+    cat(msg)
+    print(summary(fmeas))
+  }
   return(CIF)
 }
 

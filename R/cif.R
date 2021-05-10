@@ -3,7 +3,7 @@
 #
 # Functions connected to reflections data.
 
-#' Reads and output an CIF file
+#' Reads and output a CIF file
 #'
 #' @param filename A character string. The path to a valid CIF file.
 #' @param message A logical variable. If TRUE (default) the function prints
@@ -59,6 +59,14 @@ readCIF <- function(filename, message=FALSE){
   #CIF=list(INTRO=intro,SYMM=symm,COOR=coordinate,ANISO=anisotropies)
   CIF = list(HEADER=intro,SYMM=symm,REFL=reflections,COOR=coordinate,ANISO=anisotropies,SYMB=symbolics,ANGLE=angle,DIST=distance,HBOND=hbond,TORSION=torsion)
   close(f)
+  anum <- nrow(coordinate$VAL)
+  msg <- c("\n")
+  if (message) {
+    msg <- c(msg,sprintf("File %s read successfully.\n",filename))
+    msg2 <- sprintf("There are %d atoms in the molecule.\n",anum)
+    msg <- c(msg,msg2)
+    cat(msg)
+  }
   return(CIF)
 }
 
@@ -251,6 +259,18 @@ r_summ <- function(x){
   #prop <- list(v,den)
   summ_c <- list(FORMULA=formula,CELL=cell,VOL=v,DEN=den,CrysSys=c_sy,SGN=sg_n,HALL=sg_hall,HM=sg_HM)
   return(summ_c)
+}
+
+r_msg <- function(x){
+  data <- unlist(x)
+  a <- reap("_cell_length_a",data)
+  b <- reap("_cell_length_b",data)
+  c <- reap("_cell_length_c",data)
+  al <- reap("_cell_angle_alpha",data)
+  be <- reap("_cell_angle_beta",data)
+  ga <- reap("_cell_angle_gamma",data)
+  cell <- c(a,b,c,al,be,ga)
+  return(cell)
 }
 
 
