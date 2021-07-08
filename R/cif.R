@@ -65,13 +65,14 @@ readCIF <- function(filename, message=FALSE){
      if (!is.null(reflections)){
      n <- length(reflections$F_squared_meas)
      f <- as.numeric(reflections$F_squared_meas)
-	 ms <- summary(f)
 	 msg <- c("\n")
 	 msg1 <- c(msg,sprintf("File %s read successfully.\n",filename))
      msg2 <- sprintf("There are %d reflections in this file.\n",n)
      msg3 <- c(msg,"Here is a summary of the observations:\n")
      msg4 <- c("\n")
-	 out <- c(msg,msg1,msg2,msg3,msg4,ms)
+	 out <- c(msg,msg1,msg2,msg3,msg4)
+	 cat(out)
+	 print(summary(f))
 	 } else {
 	 anum <- nrow(coordinate$VAL)
 	 msg <- c("\n")
@@ -80,8 +81,8 @@ readCIF <- function(filename, message=FALSE){
 	 please refer corresponding reflection file (fcf or hkl).\n")
      msg2 <- sprintf("There are %d atoms in the molecule.\n",anum)
 	 out <- c(msg,msg1,msg2)
-     }
-	 cat(out)
+     cat(out)
+	 }
   }
   return(CIF)
 }
