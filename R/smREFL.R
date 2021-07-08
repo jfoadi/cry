@@ -38,8 +38,8 @@ readsm_REFL <- function(filename, message=FALSE){
   reflections <- if (is.na(nanona(reflection)) == FALSE) clean(r_reflections(nanona(reflection))) else NULL
   CIF = list(HEADER=intro,SYMM=symm,REFL=reflections)
   close(f)
-  nrefs <- length(reflections$VAL$F_meas_au)
-  fmeas <- as.numeric(reflections$VAL$F_meas_au)
+  nrefs <- length(reflections$VAL$F_squared_meas)
+  fmeas <- as.numeric(reflections$VAL$F_squared_meas)
   msg <- c("\n")
   if (message) {
     msg <- c(msg,sprintf("File %s read successfully.\n",filename))
