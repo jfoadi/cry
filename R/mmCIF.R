@@ -16,15 +16,15 @@
 #' @examples
 #' datadir <- system.file("extdata",package="cry")
 #' filename <- file.path(datadir,"3syu.cif")
-#' lCIF <- readMM_CIF(filename)
+#' lCIF <- readmm_CIF(filename)
 #' print(names(lCIF))
-#' print(lCIF$INTRO$CELL)
-#' print(lCIF$INTRO$HALL)
-#' print(lCIF$INTRO$HM)
-#' print(lCIF$SYMM)
+#' print(lCIF$HEADER$Entry)
+#' print(lCIF$HEADER$Symmtery)
+#' print(lCIF$HEADER$CELL)
+#' print(lCIF$EXP_DETAILS$CRYSTAL_CON$VAL)
 #'
 #' @export
-readMM_CIF <- function(filename, message=FALSE){
+readmm_CIF <- function(filename, message=FALSE){
   f <- file(filename)
   lcif <- readLines(f,warn=FALSE)
   l_list <- grep("loop_",lcif)
@@ -1278,45 +1278,69 @@ r_refinesh <- function (x){
 r_tls1 <- function (x){
   data <- unlist(x)
   l_l <- c(grep("_pdbx_refine_tls.",data,value=TRUE))
+  l <- ((length(data)-length((grep("_pdbx_refine_tls.",data)))))
   m <- length(l_l)
   n <- length(data)
-  data1 <- data[m+1:n]
-  data1 <- nanona(data1)
-  data2 <- scan(text=data1, what='character', quiet=TRUE)
-  data2 <- gsub("[;]","",data2)
-  data2 <- data2[data2 !=""]
-  o <- length(data2)
-  data3 <- list(data2)
-  list_all <- split(data3[[1]], rep(1:(length(data2)/length(l_l)), each = m))
-  res <- do.call(rbind, list_all)
-  res <- as.data.frame(res)
-  colnames(res) <- c(gsub("_pdbx_refine_tls.","",l_l))
-  return(res)
- }
+  if (l < 1) {
+      data <- (gsub("_pdbx_refine_tls.","",data))
+      data2 <- scan(text=data, what='character', quiet=TRUE)
+      data3 <- list(data2)
+	  list_all <- split(data3[[1]], rep(1:m, each = (length(data2)/length(l_l))))
+	  res <- do.call(rbind, list_all)
+	  res <- as.data.frame(res)
+	  colnames(res) <- c("KEY","VAL")
+      return(res)
+	} else {
+	  data1 <- data[m+1:n]
+      data1 <- nanona(data1)
+      data2 <- scan(text=data1, what='character', quiet=TRUE)
+      data2 <- gsub("[;]","",data2)
+      data2 <- data2[data2 !=""]
+      o <- length(data2)
+      data3 <- list(data2)
+      list_all <- split(data3[[1]], rep(1:(length(data2)/length(l_l)), each = m))
+      res <- do.call(rbind, list_all)
+      res <- as.data.frame(res)
+      colnames(res) <- c(gsub("_pdbx_refine_tls.","",l_l))
+      return(res)
+    }
+  }
 
 
 r_tls_g <- function (x){
   data <- unlist(x)
   l_l <- c(grep("_pdbx_refine_tls_group",data,value=TRUE))
+  l <- ((length(data)-length((grep("_pdbx_refine_tls.",data)))))
   m <- length(l_l)
   n <- length(data)
-  data1 <- data[m+1:n]
-  data1 <- nanona(data1)
-  d <- length(grep(";",data1))
-  if (d < 1) {
-      data1 <- unlist(data1)
-	  } else {
-	  data1 <- unlist(data1)
-	  data1 <- gsub(";", '"', data1, fixed = T)
-	  }
-  data2 <- scan(text=data1, what='character', quiet=TRUE)
-  data2 <- gsub("[\r\n]", "", data2)
-  o <- length(data2)
-  data3 <- list(data2)
-  list_all <- split(data3[[1]], rep(1:(length(data2)/length(l_l)), each = m))
-  res <- do.call(rbind, list_all)
-  res <- as.data.frame(res)
-  colnames(res) <- c(gsub("_pdbx_refine_tls_group","",l_l))
-  return(res)
+  if (l < 1) {
+      data <- (gsub("_pdbx_refine_tls_group.","",data))
+      data2 <- scan(text=data, what='character', quiet=TRUE)
+      data3 <- list(data2)
+	  list_all <- split(data3[[1]], rep(1:m, each = (length(data2)/length(l_l))))
+	  res <- do.call(rbind, list_all)
+	  res <- as.data.frame(res)
+	  colnames(res) <- c("KEY","VAL")
+      return(res)
+	} else {
+      data1 <- data[m+1:n]
+      data1 <- nanona(data1)
+      d <- length(grep(";",data1))
+      if (d < 1) {
+         data1 <- unlist(data1)
+	     } else {
+	       data1 <- unlist(data1)
+	       data1 <- gsub(";", '"', data1, fixed = T)
+	      }
+      data2 <- scan(text=data1, what='character', quiet=TRUE)
+      data2 <- gsub("[\r\n]", "", data2)
+      o <- length(data2)
+      data3 <- list(data2)
+      list_all <- split(data3[[1]], rep(1:(length(data2)/length(l_l)), each = m))
+      res <- do.call(rbind, list_all)
+      res <- as.data.frame(res)
+      colnames(res) <- c(gsub("_pdbx_refine_tls_group","",l_l))
+    return(res)
+   }
   }
 
