@@ -43,7 +43,7 @@ readCIF <- function(filename, message=FALSE){
   symm <- ansnull(symmetry)
   reflections1 <- r_reflections1(lcif)
   reflections2 <- if (is.na(nanona(reflection)) == FALSE) r_reflections2(nanona(reflection)) else NA
-  reflections <- r_reflections(reflections1,r_reflections2)
+  reflections <- r_reflections(reflections1,reflections2)
   coordinate <- if (is.na(nanona(coordinates)) == FALSE) clean(r_positions(nanona(coordinates))) else NULL
   #coordinate <- r_positions(ansnull(coordinates))
   anisotropies <- if (is.na(nanona(anisotropy)) == FALSE) clean(r_aniso(nanona(anisotropy))) else NULL
