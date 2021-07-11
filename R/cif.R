@@ -183,7 +183,7 @@ reap <- function(pattern,word){
 r_reflections <- function(x,y){
   if (all(is.na(x))== FALSE) {
       out <- x
-	  } else if (all(is.na(x)) == FALSE) {
+	  } else if (all(is.na(y)) == FALSE) {
 	  out <- y
 	  } else {
 	   out <- NULL
