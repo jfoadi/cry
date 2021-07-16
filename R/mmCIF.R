@@ -55,6 +55,9 @@ readmm_CIF <- function(filename, message=FALSE){
   diffractn <- grep("\\b_diffrn", lcif, value=TRUE,perl=T)
   diffr <- r_diff(diffractn)
 
+  refl_block <- lapply(ch, ucheck, pattern="_refln.index_h")
+  refl_data <- if (is.na(nanona(refl_block)) == FALSE) clean(r_reflections(nanona(refl_block))) else NULL
+
   reflections1 <- lapply(ch, ucheck, pattern="\\b_reflns.\\b")
   refl_all <- if (is.na(nanona(reflections1)) == FALSE) clean(r_refl1(nanona(reflections1))) else NULL
 
@@ -178,24 +181,39 @@ readmm_CIF <- function(filename, message=FALSE){
 
   intro = list(Entry=id,Symmtery=symmetry,CELL=cellparam)
   refn = list(Overall=refine_all,HIST=refine_hist,SHELL=refine_shell,TLS=refine_tls,TLS_Group=refine_tls_g)
-  refl = list(Overall=refl_all,SHELL=refl_shell)
+  refl_d = list(Overall=refl_all,SHELL=refl_shell)
   ent = list(ENTITY_all=entity,ENTITY_Poly=entity_poly,ENTITY_Source=entity_src)
   bp_d = list(NA_CONF=na_conf,NA_BP_INT=na_b_int,NA_S_INT=na_s_int)
-  expr = list(EXPERIMENT=exptl,CRYSTAL_CON=cry_cond,DIFFRACTION=diffr,REFLECTION=refl,REFINEMENT=refn)
+  expr = list(EXPERIMENT=exptl,CRYSTAL_CON=cry_cond,DIFFRACTION=diffr,REFLECTION=refl_d,REFINEMENT=refn)
   str_seq = list(ENTITY=ent,SEQ=seq_ent,STR_Ref=str_ref,SEQ_SOURCE=ref_seq,SEQ_ALT=mut_seq,COMPOSITION=chem_comp,ASYM=asym_info)#
   sheetin = list(SHEETID=sheet1,SHEET_ORDER=sheet2,SHEET_RANGE=sheet3,SHEET_HBOND=sheet4)
   conn_nsc = list(CONFIRMATIONS=conf,CONNECTIONS=cont,PEP_CIS=monocis,SHEET_INFO=sheetin,NSC_LIMIT=nscdlimt,NSC=nscd)
   Str_d = list(SEQ_STR=str_seq,CONN_NSC=conn_nsc,TRANS_INFO=tranform,COOR=coordinate,NA_INFO=bp_d,ANISO=anisot,ASYMNP=asymnonpoly,ASYMP=asympoly)
   val = list(CLOSE_CONT=close_c,VAL_ANGLE=val_angle,VAL_TOR=val_tor,VAL_OMG=val_omg,ZO_atom=zo_atom,ZO_residue=zo_res)
-  CIF = list(HEADER=intro,EXP_DETAILS=expr,STRU_DETAILS=Str_d,SOFTWARE=softcite,VAL_DETAILS=val)
+  CIF = list(HEADER=intro,REFL=refl_data,EXP_DETAILS=expr,STRU_DETAILS=Str_d,SOFTWARE=softcite,VAL_DETAILS=val)
   close(f)
-  anum <- nrow(coordinate$VAL)
-  msg <- c("\n")
-  if (message) {
-    msg <- c(msg,sprintf("File %s read successfully.\n",filename))
-    msg2 <- sprintf("There are %d atoms in the molecule.\n",anum)
-    msg <- c(msg,msg2)
-    cat(msg)
+ if (message) {
+     if (!is.null(refl_data)){
+     n <- length(refl_data$VAL$F_meas_au)
+     f <- as.numeric(refl_data$VAL$F_meas_au)
+	 msg <- c("\n")
+	 msg1 <- c(msg,sprintf("File %s read successfully.\n",filename))
+     msg2 <- sprintf("There are %d reflections in this file.\n",n)
+     msg3 <- c(msg,"Here is a summary of the observations:\n")
+     msg4 <- c("\n")
+	 out <- c(msg,msg1,msg2,msg3,msg4)
+	 cat(out)
+	 print(summary(f))
+	 } else {
+	 anum <- nrow(coordinate$VAL)
+	 msg <- c("\n")
+	 msg <- c(msg,sprintf("File %s read successfully.\n",filename))
+     msg1 <- sprintf("The file does not contain reflection datablock,
+	 please refer corresponding reflection file (sfcif or mtz).\n")
+     msg2 <- sprintf("There are %d atoms in the molecule.\n",anum)
+	 out <- c(msg,msg1,msg2)
+     cat(out)
+	 }
   }
   return(CIF)
 }
@@ -1206,7 +1224,6 @@ r_refl2 <- function (x){
   }
  }
 
-
 r_refine <- function (x){
   data <- unlist(x)
   d <- length(grep(";",data))
@@ -1344,3 +1361,14 @@ r_tls_g <- function (x){
    }
   }
 
+r_reflections <- function (x){
+  data <- unlist(x)
+  nskip <- length((grep("_refln",data)))
+  lst <- lapply(split(data, cumsum(grepl("^V", data))),
+                function(x) read.table(text=x,skip=nskip))
+  names(lst) <- NULL
+  res <- do.call(`cbind`, lst)
+  l_l <- c(grep("_refln",data,value=TRUE))
+  colnames(res) <- c(gsub("_refln.","",l_l))
+  return(res)
+}

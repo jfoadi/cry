@@ -44,9 +44,9 @@ readCIF <- function(filename, message=FALSE){
   reflections1 <- r_reflections1(lcif)
   reflections2 <- if (is.na(nanona(reflection)) == FALSE) r_reflections2(nanona(reflection)) else NA
   reflections <- r_reflcs(reflections1,reflections2)
-  coordinate <- if (is.na(nanona(coordinates)) == FALSE) clean(r_positions(nanona(coordinates))) else NULL
+  coordinate <- if (is.na(nanona(coordinates)) == FALSE) clean(r_spositions(nanona(coordinates))) else NULL
   #coordinate <- r_positions(ansnull(coordinates))
-  anisotropies <- if (is.na(nanona(anisotropy)) == FALSE) clean(r_aniso(nanona(anisotropy))) else NULL
+  anisotropies <- if (is.na(nanona(anisotropy)) == FALSE) clean(r_saniso(nanona(anisotropy))) else NULL
   #anisotropies <- r_aniso(ansnull(anisotropy))
   symbolics <- ansnull(symbol)
   angle <- if (is.na(nanona(geom_angle)) == FALSE) clean(r_angle(nanona(geom_angle))) else NULL
@@ -228,7 +228,7 @@ r_reflections2 <- function (x){
   return(res)
 }
 
-r_positions <- function (x){
+r_spositions <- function (x){
   data <- unlist(x)
   l_l <- c(grep("_atom",data,value=TRUE))
   data1 <- data[length(l_l)+1:length(data)]
@@ -249,7 +249,7 @@ r_positions <- function (x){
 }
 
 
-r_aniso <- function(x){
+r_saniso <- function(x){
   data <- unlist(x)
   l_l <- c(grep("_atom",data,value=TRUE))
   data1 <- data[length(l_l)+1:length(data)]

@@ -155,6 +155,7 @@ reap <- function(pattern,word){
   s2 <- reap1(s1)
   return(list(VAL=v,STD=s2))
 }
+
 r_symm <- function (x){
   data <- unlist(x)
   nskip <- length((grep("_symmetry",data)))
