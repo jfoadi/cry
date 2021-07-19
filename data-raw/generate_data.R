@@ -29,7 +29,8 @@
 
 generate_sysdata <- function()
 {
-  require(devtools)
+  #require(devtools)
+  require(usethis)
 
   # Symmetry information
   symfile <- file.path("data-raw","syminfo.lib")
@@ -46,7 +47,12 @@ generate_sysdata <- function()
   aminofile <- file.path("data-raw","amino_list.dat")
   .AMINO_ACIDS_data.frame <- read.table(file=aminofile)
 
+  # Atomic scattering factors
+  sffile <- file.path("data-raw","atomsf.lib")
+  sfinfo <- scan(file=sffile,what="character",sep="\n",quiet=TRUE)
+
   # Save all data
-  use_data(syminfo,.ATOMS_data.frame,.ALPHABET,.AMINO_ACIDS_data.frame,
+  use_data(syminfo,.ATOMS_data.frame,.ALPHABET,
+           .AMINO_ACIDS_data.frame,sfinfo,
            internal=TRUE)
 }
