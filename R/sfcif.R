@@ -122,19 +122,20 @@ clean1 <- function(x){
   if (all(is.na(x)) == TRUE){
     out <- NULL
   } else
-  { out <- as.data.frame(x)
+  { out <- nc_type(as.data.frame(x))
   return(out)
   }
 }
 
 
 clean <- function(x){
-  co1 <- data.frame(gsub ("[()]","",as.matrix(x),perl=T))
+  co1 <- data.frame(gsub ("[()]","",as.matrix(x),perl=T),stringsAsFactors = FALSE)
   ref <- data.frame(gsub("(?<!\\))(?:\\w+|[^()])(?!\\))","",as.matrix(x),perl=T))
-  ref1 <- data.frame(gsub("[()]","",as.matrix(ref),perl=T))
+  ref1 <- data.frame(gsub("[()]","",as.matrix(ref),perl=T),stringsAsFactors = FALSE)
   ref1[ref1==""]<-NA
   ref2 <- clean1(ref1)
-  return(list(VAL=co1,STD=ref2))
+  col1 <- nc_type(co1)
+  return(list(VAL=col1,STD=ref2))
 }
 
 reap1 <- function(x){
@@ -154,6 +155,33 @@ reap <- function(pattern,word){
   s1 <- gsub("[()]","",as.matrix(s),perl=T)
   s2 <- reap1(s1)
   return(list(VAL=v,STD=s2))
+}
+
+nc_type <- function(data){
+  count <- as.numeric(ncol(data))
+  if (isTRUE(count > 2)) { #something wrong in lower version of R
+    data[] <- lapply(data, function(x) numas(x))
+    out <- data
+  } else if (count == 2){
+    l1_data <- list(data$VAL)
+    l_1 <- lapply(l1_data[[1]], function(x) numas(x))
+    l2_data <- list(data$KEY)
+    l2 <- c(gsub("\\[|\\]" ,"",l2_data[[1]]))
+    names(l_1) <- c(l2)
+    out <- l_1
+    return(out)
+  }
+}
+
+numas <- function(x){
+  data <- x
+  out <- (suppressWarnings(as.numeric(data)))
+  if (all(is.na(out))== FALSE) {
+    out1 <- out
+  } else {
+    out1 <- as.character(data)
+  }
+  return(out1)
 }
 
 r_symm <- function (x){

@@ -44,16 +44,16 @@ readmm_CIF <- function(filename, message=FALSE){
   sg_HM <- check1("symmetry.space_group_name_H-M",lcif)
 
   symm <- grep("\\b_symmetry.", lcif, value=TRUE,perl=T)
-  symmetry <- r_symm(symm)
+  symmetry <- clean(r_symm(symm))
 
   expetls <- grep("\\b_exptl", lcif, value=TRUE,perl=T)
-  exptl <- r_exptl(expetls)
+  exptl <- clean(r_exptl(expetls))
 
   cry_conds <- lapply(ch, ucheck, pattern="_exptl_crystal_grow.pdbx_details")
-  cry_cond <- if (is.na(nanona(cry_conds)) == FALSE) r_cry_con(nanona(cry_conds)) else NULL
+  cry_cond <- if (is.na(nanona(cry_conds)) == FALSE) clean(r_cry_con(nanona(cry_conds))) else NULL
 
   diffractn <- grep("\\b_diffrn", lcif, value=TRUE,perl=T)
-  diffr <- r_diff(diffractn)
+  diffr <- clean(r_diff(diffractn))
 
   refl_block <- lapply(ch, ucheck, pattern="_refln.index_h")
   refl_data <- if (is.na(nanona(refl_block)) == FALSE) clean(r_reflections(nanona(refl_block))) else NULL
@@ -286,19 +286,19 @@ clean1 <- function(x){
   if (all(is.na(x)) == TRUE){
     out <- NULL
   } else
-  { out <- as.data.frame(x)
+  { out <- nc_type(as.data.frame(x))
   return(out)
   }
 }
 
-
 clean <- function(x){
-  co1 <- data.frame(gsub ("[()]","",as.matrix(x),perl=T))
+  co1 <- data.frame(gsub ("[()]","",as.matrix(x),perl=T),stringsAsFactors = FALSE)
   ref <- data.frame(gsub("(?<!\\))(?:\\w+|[^()])(?!\\))","",as.matrix(x),perl=T))
-  ref1 <- data.frame(gsub("[()]","",as.matrix(ref),perl=T))
+  ref1 <- data.frame(gsub("[()]","",as.matrix(ref),perl=T),stringsAsFactors = FALSE)
   ref1[ref1==""]<-NA
   ref2 <- clean1(ref1)
-  return(list(VAL=co1,STD=ref2))
+  col1 <- nc_type(co1)
+  return(list(VAL=col1,STD=ref2))
 }
 
 reap1 <- function(x){
@@ -320,14 +320,31 @@ reap <- function(pattern,word){
   return(list(VAL=v,STD=s2))
 }
 
+nc_type <- function(data){
+  count <- as.numeric(ncol(data))
+  if (isTRUE(count > 2)) {
+    data[] <- lapply(data, function(x) numas(x))
+    out <- data
+  } else if (count == 2){
+    l1_data <- list(data$VAL)
+    l_1 <- lapply(l1_data[[1]], function(x) numas(x))
+    l2_data <- list(data$KEY)
+    l2 <- c(gsub("\\[|\\]" ,"",l2_data[[1]]))
+    names(l_1) <- c(l2)
+    out <- l_1
+    return(out)
+  }
+}
 
 numas <- function(x){
-  if (is.na(suppressWarnings(as.numeric(x))) == FALSE){
-    x <- as.numeric(x)
-  } else if (is.na(suppressWarnings(as.numeric(x))) == TRUE) {
-    x <- as.character(x)
-    return(x)
+  data <- x
+  out <- (suppressWarnings(as.numeric(data)))
+  if (all(is.na(out))== FALSE) {
+    out1 <- out
+  } else {
+    out1 <- as.character(data)
   }
+  return(out1)
 }
 
 r_entity <- function (x){
@@ -1115,14 +1132,15 @@ r_zores <- function (x){
 
 r_cellparm <- function (x){
   data <- unlist(x)
-  data <- data[!grepl("_cell.entry.id", data)]
+  #data <- data[!grepl("_cell.entry.id", data)]
   data <- data[!grepl("_cell.details", data)]
   data <- (gsub("_cell.","",data))
   lst <- lapply(split(data, cumsum(grepl("^V", data))),
-                function(x) read.table(text=x ,stringsAsFactors = FALSE,col.names=c("KEY","VAL")))
+                function(x) read.table(text=x ,stringsAsFactors = FALSE))
   names(lst) <- NULL
   res <- do.call(`cbind`, lst)
-  res <- suppressWarnings(data.frame(res[1], apply(res[2], 2,numas)))
+  res <- suppressWarnings(data.frame(res[1], apply(res[2], 1,numas)))
+  colnames(res) <- c("KEY","VAL")
   return(res)
 }
 
