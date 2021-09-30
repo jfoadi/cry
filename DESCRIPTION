@@ -21,9 +21,10 @@ Encoding: UTF-8
 Depends: R (>= 3.6.0)
 Imports:
     methods,
-    zoo
+    zoo,
+    ggplot2
 Suggests: 
     knitr,
     rmarkdown,
-    markdown,
-    ggplot2
+    markdown
+    
