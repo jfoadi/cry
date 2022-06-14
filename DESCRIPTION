@@ -15,7 +15,7 @@ Description: Reading and writing of files in the most commonly used formats of
   (2011) <doi:10.1107/S0108767311084303>.
 License: GPL-2
 LazyLoad: yes
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 VignetteBuilder: knitr
 Encoding: UTF-8
 Depends: R (>= 3.6.0)
