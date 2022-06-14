@@ -137,8 +137,8 @@ ggplot(data = refs, aes(FP/SIGFP)) +
   theme_cry()
 
 # Histogram of I/sigI
-hist(refs$FP/refs$SIGFP,breaks=30,
-     main="FP/sigFP",xlab="FP/sigFP")
+# hist(refs$FP/refs$SIGFP,breaks=30,
+#      main="FP/sigFP",xlab="FP/sigFP")
 ```
 
 A third example is related to the reflections' resolution. Once it has been calculated (cell parameters are needed to do that), data can be selected within a given resolution range (a so-called *resolution shell*). There is a function in `cry`, called `hkl_to_reso`, which calculates the resolution in angstroms for a reflection of Miller indices $h, k, l$.
