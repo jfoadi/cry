@@ -122,7 +122,7 @@ range(refs$FP/refs$SIGFP)
 
 Clearly, a lot of different operations and investigations can be carried out on the selected data. A second example involves data for which the signal-to-noise ratio (FP/sigFP) is greater than 1, as shown in the following snippet.
 
-```{r echo=TRUE,fig.height=3,fig.width=5}
+```{r echo=TRUE,fig.height=5,fig.width=8}
 idx <- which(objMTZ$reflections$FP/objMTZ$reflections$SIGFP >= 1)
 length(idx) # 8377 reflections have FP/sigFP >= 1
 
