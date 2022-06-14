@@ -23,6 +23,7 @@ Some sample files are stored as external data in this package. These are the MTZ
 
 ```{r, ech=TRUE}
 library(cry)
+library(ggplot2)
 ```
 
 Next, have a look at what is included in the external-data directory of `cry`.
@@ -127,6 +128,13 @@ length(idx) # 8377 reflections have FP/sigFP >= 1
 
 # The reflections can be extracted
 refs <- objMTZ$reflections[idx,]
+
+# Histogram of I/sigI with ggplot2
+ggplot(data = refs, aes(FP/SIGFP)) +
+  geom_histogram(fill = "#5494AB", colour = "#125CD2", binwidth = 3) +
+  xlab("FP/sigFP") +
+  labs(title = "Signal-to-noise ratio FP/sigFP greater than 1") +
+  theme_cry()
 
 # Histogram of I/sigI
 hist(refs$FP/refs$SIGFP,breaks=30,

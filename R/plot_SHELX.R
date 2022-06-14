@@ -13,6 +13,7 @@
 #' @param var the variable to be plotted vs the resolution
 #' @param type indicate the type of file, possible value are "shelxc",
 #'  "shelxd" and "shelxe".
+#' @param title_chart title of the chart.
 #' @return A graphical object from ggplot2 class that contains
 #' the solution founded by SHELX log file.
 #' @examples
@@ -21,12 +22,13 @@
 #' shelxc_log <- file.path(datadir,"shelxc.log")
 #' shelxc <- read_SHELX_log(shelxc_log)
 #' plot_shelxc <- plot_SHELX(filename = shelxc, var = shelxc$I_sig,
-#' type = "shelxc")
+#' type = "shelxc", title_chart = "SHELXC")
 #' plot_shelxc
 #' ## SHELXD
 #' shelxd_log <- file.path(datadir,"shelxd.log")
 #' shelxd <- read_SHELX_log(shelxd_log)
-#' plot_shelxd <- plot_SHELX(filename = shelxd, type = "shelxd")
+#' plot_shelxd <- plot_SHELX(filename = shelxd, type = "shelxd",
+#' title_chart = "SHELXD")
 #' plot_shelxd
 #' ## SHELXE
 #' filename_i <- file.path(datadir,"shelxe_i.log")
@@ -34,7 +36,7 @@
 #' filename_o <- file.path(datadir,"shelxe_o.log")
 #' shelxe_o <- read_SHELX_log(filename_o)
 #' plot_shelxe <- plot_SHELX(filename = shelxe_i,
-#' filename_e = shelxe_o, type = "shelxe")
+#' filename_e = shelxe_o, type = "shelxe", title_chart = "SHELXE")
 #' plot_shelxe
 #'
 #' @importFrom ggplot2 ggplot
@@ -44,9 +46,12 @@
 #' @importFrom ggplot2 theme_bw
 #' @importFrom ggplot2 xlab
 #' @importFrom ggplot2 ylab
+#' @importFrom ggplot2 scale_x_continuous
+#' @importFrom ggplot2 scale_y_continuous
+#' @importFrom ggplot2 labs
 #' @export
 
-plot_SHELX <-function(filename, filename_e, var, type)
+plot_SHELX <-function(filename, filename_e, var, type, title_chart)
 {
   ## set to NULL global variables
   Res <- CCall <- CCweak <- ncycle <- Contrast <- dataset <- NULL
@@ -55,7 +60,12 @@ plot_SHELX <-function(filename, filename_e, var, type)
     gg <- ggplot(filename, aes(1/(Res)^2, var)) +
       geom_point() + geom_line() +
       xlab(expression(h^2 * (ring(A)^-2))) +
-      theme_bw()
+      labs(title = title_chart) +
+      scale_x_continuous(expand = c(0, 0),
+                         limits = c(0,
+                                    max(1/(filename$Res)^2) + min(1/(filename$Res)^2))) +
+      scale_y_continuous(expand = c(0, 0), limits = c(0, max(var) + min(var)))
+      #theme_bw()
     ifelse(var == filename$d_sig,
            gp <- gg +
              ylab(expression(Delta*F/sig(Delta*F))),
@@ -74,12 +84,17 @@ plot_SHELX <-function(filename, filename_e, var, type)
   } else if(type == "shelxd") {
     gg <- ggplot(filename, aes(CCall, CCweak)) +
       geom_point() +
-      theme_bw() +
+      scale_x_continuous(expand = c(0, 0),
+                         limits = c(0,
+                                    max(filename$CCall) + min(filename$CCall))) +
+      scale_y_continuous(expand = c(0, 0),
+                         limits = c(0, max(filename$CCweak) + min(filename$CCweak))) +
+      #theme_bw() +
       xlab('CCall') +
       ylab('CCweak')
     gg
   } else {
-    # create a new column wich will be the total number of cycles
+    # create a new column which will be the total number of cycles
     lcycle_i <- length(filename$CYCLE[,1])
     lcycle_o <- length(filename_e$CYCLE[,1])
     ncycle_i <- seq(1,lcycle_i)
@@ -101,7 +116,7 @@ plot_SHELX <-function(filename, filename_e, var, type)
     gg <- ggplot(df, aes(ncycle, Contrast, color  =  dataset,
                          group = dataset)) +
       geom_line() + geom_point() +
-      theme_bw() +
+      #theme_bw() +
       ggplot2::scale_color_manual(values = c("#4DAC26", "#2C7BB6"),
                          name = "") +
       xlab("Cycle")

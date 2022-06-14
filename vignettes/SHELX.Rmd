@@ -23,6 +23,7 @@ Some sample files are stored as external data in this package. Among them there 
 
 ```{r setup}
 library(cry)
+library(ggplot2)
 ```
 
 Next, have a look at what is included in the external-data directory of `cry`.
@@ -42,10 +43,13 @@ obj_shelxc <- read_SHELX_log(filename)
 class(obj_shelxc)
 names(obj_shelxc)
 ```
-Plot $Delta*F/sig(Delta*F)$ vs resolution using the function`plot_SHELX`.
+Using cry we plot all the classic charts of SHELXC. In the example below we show $Chis ^2$ vs resolution using the function`plot_SHELX`.
 
 ```{r}
-plot_SHELX(obj_shelxc, var = obj_shelxc$I_sig, type = "shelxc")
+plot_SHELX(obj_shelxc, var = obj_shelxc$Chi_sq, type = "shelxc",
+           title_chart = "Chis ^2") +
+  theme_cry()
+    
 ```
 
 
@@ -60,7 +64,8 @@ names(obj_shelxd)
 Plot CCall vs CCweak using ggplot2
 
 ```{r, fig_width = 16, fig_height= 14}
-plot_SHELX(filename = obj_shelxd, type = "shelxd")
+plot_SHELX(filename = obj_shelxd, type = "shelxd") +
+  theme_cry()
 ```
 
 
@@ -103,9 +108,11 @@ class(Site2_i)
 names(Site2_i)
 ```
 
-Plot inverted and orginal hand.
+Plot inverted and original hand.
 
 ```{r}
-plot_SHELX(filename = obj_shelxe_i, filename_e = obj_shelxe_o, type = "shelxe")
+plot_SHELX(filename = obj_shelxe_i, filename_e = obj_shelxe_o,
+           type = "shelxe") +
+  theme_cry()
 ```
 
