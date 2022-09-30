@@ -14,8 +14,8 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link href="../deps/bootstrap-5.1.3/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.1.3/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Read and analyse an XDS file">
 <meta property="og:description" content="cry">
@@ -91,18 +91,18 @@
 </h2>
 <p>Some sample files are stored as external data in this package. Among them there are two XDS files available with the current release. To access the files, first load the <code>cry</code> package.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jfoadi.github.io/cry/">cry</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jfoadi.github.io/cry/">cry</a></span><span class="op">)</span></span></code></pre></div>
 <p>Next, have a look at what is included in the external-data directory of <code>cry</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">datadir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>,package<span class="op">=</span><span class="st">"cry"</span><span class="op">)</span>
-<span class="va">all_files</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="va">datadir</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">all_files</span><span class="op">)</span>
-<span class="co">#&gt;  [1] "1dei_phases.mtz"           "1dei-sf.cif"              </span>
-<span class="co">#&gt;  [3] "2ol9_phases.mtz"           "3syu.cif"                 </span>
-<span class="co">#&gt;  [5] "6vww_xds_ascii_merged.hkl" "AMS_DATA.cif"             </span>
-<span class="co">#&gt;  [7] "e-65-00i60-Isup2.rtv"      "shelxc.log"               </span>
-<span class="co">#&gt;  [9] "shelxd.log"                "shelxe_i.log"             </span>
-<span class="co">#&gt; [11] "shelxe_o.log"              "xds00_ascii.hkl"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">datadir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>,package<span class="op">=</span><span class="st">"cry"</span><span class="op">)</span></span>
+<span><span class="va">all_files</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="va">datadir</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">all_files</span><span class="op">)</span></span>
+<span><span class="co">#&gt;  [1] "1dei_phases.mtz"           "1dei-sf.cif"              </span></span>
+<span><span class="co">#&gt;  [3] "2ol9_phases.mtz"           "3syu.cif"                 </span></span>
+<span><span class="co">#&gt;  [5] "6vww_xds_ascii_merged.hkl" "AMS_DATA.cif"             </span></span>
+<span><span class="co">#&gt;  [7] "e-65-00i60-Isup2.rtv"      "shelxc.log"               </span></span>
+<span><span class="co">#&gt;  [9] "shelxd.log"                "shelxe_i.log"             </span></span>
+<span><span class="co">#&gt; [11] "shelxe_o.log"              "xds00_ascii.hkl"</span></span></code></pre></div>
 <p>The two XDS files we are interested in are “xds00_ascii.hkl” and “6vww_xds_ascii_merged.hkl”. Both files can be loaded using function <code>readXDS_ASCII</code>.</p>
 </div>
 <div class="section level2">
@@ -110,12 +110,12 @@
 </h2>
 <p>The <code>cry</code> function <code>readXDS_ASCII</code> can load in the R working memory both XDS reflection files produced by XDS and XSCALE. Their formats differ slightly. Let’s start by loading “xds00_ascii.hkl”, which is created by the ’CORRECT’component of XDS. The created object is a named list.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">filename</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">datadir</span>,<span class="st">"xds00_ascii.hkl"</span><span class="op">)</span>
-<span class="va">objXDS1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readXDS_ASCII.html">readXDS_ASCII</a></span><span class="op">(</span><span class="va">filename</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">objXDS1</span><span class="op">)</span>
-<span class="co">#&gt; [1] "list"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">objXDS1</span><span class="op">)</span>
-<span class="co">#&gt; [1] "processing_info" "header"          "reflections"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">filename</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">datadir</span>,<span class="st">"xds00_ascii.hkl"</span><span class="op">)</span></span>
+<span><span class="va">objXDS1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readXDS_ASCII.html">readXDS_ASCII</a></span><span class="op">(</span><span class="va">filename</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">objXDS1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "list"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">objXDS1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "processing_info" "header"          "reflections"</span></span></code></pre></div>
 <p>Each component of  is either a named list, or a data frame. More specifically:</p>
 <ol style="list-style-type: decimal">
 <li>
@@ -132,234 +132,234 @@
 </li>
 </ol>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># 'reflections' is a data frame</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">objXDS1</span><span class="op">$</span><span class="va">reflections</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; [1] "data.frame"</span>
-
-<span class="co"># First 5 observations</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">objXDS1</span><span class="op">$</span><span class="va">reflections</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span><span class="op">)</span>
-<span class="co">#&gt;   H K   L   IOBS SIGMA.IOBS.     XD    YD   ZD     RLP PEAK CORR   PSI</span>
-<span class="co">#&gt; 1 0 0 -35  61.77       128.4 2094.2 664.4  6.4 0.17998   92    7 62.60</span>
-<span class="co">#&gt; 2 0 0 -36 137.70       136.3 2120.2 645.5 10.3 0.18539   99    8 62.91</span>
-<span class="co">#&gt; 3 0 0 -38 -29.38       153.9 2172.7 607.6 18.0 0.19628  100   -7 63.53</span>
-<span class="co">#&gt; 4 0 0 -39 -23.68       158.5 2199.2 588.5 21.9 0.20176  100   -7 63.85</span>
-<span class="co">#&gt; 5 0 0 -40  73.30       161.0 2226.0 569.5 25.8 0.20726  100    8 64.16</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># 'reflections' is a data frame</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">objXDS1</span><span class="op">$</span><span class="va">reflections</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "data.frame"</span></span>
+<span></span>
+<span><span class="co"># First 5 observations</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">objXDS1</span><span class="op">$</span><span class="va">reflections</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   H K   L   IOBS SIGMA.IOBS.     XD    YD   ZD     RLP PEAK CORR   PSI</span></span>
+<span><span class="co">#&gt; 1 0 0 -35  61.77       128.4 2094.2 664.4  6.4 0.17998   92    7 62.60</span></span>
+<span><span class="co">#&gt; 2 0 0 -36 137.70       136.3 2120.2 645.5 10.3 0.18539   99    8 62.91</span></span>
+<span><span class="co">#&gt; 3 0 0 -38 -29.38       153.9 2172.7 607.6 18.0 0.19628  100   -7 63.53</span></span>
+<span><span class="co">#&gt; 4 0 0 -39 -23.68       158.5 2199.2 588.5 21.9 0.20176  100   -7 63.85</span></span>
+<span><span class="co">#&gt; 5 0 0 -40  73.30       161.0 2226.0 569.5 25.8 0.20726  100    8 64.16</span></span></code></pre></div>
 <p>A file produced by XSCALE has in general a smaller number of data columns:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Load the other XDS ascii file</span>
-<span class="va">filename</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">datadir</span>,<span class="st">"6vww_xds_ascii_merged.hkl"</span><span class="op">)</span>
-<span class="va">objXDS2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readXDS_ASCII.html">readXDS_ASCII</a></span><span class="op">(</span><span class="va">filename</span>,message<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;  File read successfully.</span>
-<span class="co">#&gt;  There are 27951 reflections in this file.</span>
-<span class="co">#&gt;  Here is a summary of the observations:</span>
-<span class="co">#&gt;  </span>
-<span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span>
-<span class="co">#&gt;  -1.085   2.089   2.920   2.868   3.684   5.888</span>
-
-<span class="co"># This file has been produced by XSCALE</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">objXDS2</span><span class="op">$</span><span class="va">processing_info</span><span class="op">$</span><span class="va">MERGE</span><span class="op">)</span>
-<span class="co">#&gt; [1] TRUE</span>
-
-<span class="co"># First 5 observations</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">objXDS2</span><span class="op">$</span><span class="va">reflections</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span><span class="op">)</span>
-<span class="co">#&gt;   H K  L     IOBS SIGMA.IOBS.</span>
-<span class="co">#&gt; 1 0 0  4   192900       78780</span>
-<span class="co">#&gt; 2 0 0  6  1707000      694600</span>
-<span class="co">#&gt; 3 0 0  8 16670000     6782000</span>
-<span class="co">#&gt; 4 0 0 10   224900       93500</span>
-<span class="co">#&gt; 5 0 0 12  7838000     3189000</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Load the other XDS ascii file</span></span>
+<span><span class="va">filename</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">datadir</span>,<span class="st">"6vww_xds_ascii_merged.hkl"</span><span class="op">)</span></span>
+<span><span class="va">objXDS2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readXDS_ASCII.html">readXDS_ASCII</a></span><span class="op">(</span><span class="va">filename</span>,message<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  File read successfully.</span></span>
+<span><span class="co">#&gt;  There are 27951 reflections in this file.</span></span>
+<span><span class="co">#&gt;  Here is a summary of the observations:</span></span>
+<span><span class="co">#&gt;  </span></span>
+<span><span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span></span>
+<span><span class="co">#&gt;  -1.085   2.089   2.920   2.868   3.684   5.888</span></span>
+<span></span>
+<span><span class="co"># This file has been produced by XSCALE</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">objXDS2</span><span class="op">$</span><span class="va">processing_info</span><span class="op">$</span><span class="va">MERGE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span></span>
+<span><span class="co"># First 5 observations</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">objXDS2</span><span class="op">$</span><span class="va">reflections</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   H K  L     IOBS SIGMA.IOBS.</span></span>
+<span><span class="co">#&gt; 1 0 0  4   192900       78780</span></span>
+<span><span class="co">#&gt; 2 0 0  6  1707000      694600</span></span>
+<span><span class="co">#&gt; 3 0 0  8 16670000     6782000</span></span>
+<span><span class="co">#&gt; 4 0 0 10   224900       93500</span></span>
+<span><span class="co">#&gt; 5 0 0 12  7838000     3189000</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="the-xds-reflections">The XDS reflections<a class="anchor" aria-label="anchor" href="#the-xds-reflections"></a>
 </h2>
 <p>Let us focus on the dataset produced by XSCALE. The full set of data is contained, as seen, in a data frame structure. This makes it easy to carry out the usual selection, reshaping and statistical operations normally available in R.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Copy reflections data for the first and</span>
-<span class="co"># second dataset, to save on later typing</span>
-<span class="va">refs1</span> <span class="op">&lt;-</span> <span class="va">objXDS1</span><span class="op">$</span><span class="va">reflections</span>
-<span class="va">refs2</span> <span class="op">&lt;-</span> <span class="va">objXDS2</span><span class="op">$</span><span class="va">reflections</span>
-
-<span class="co"># Check whether the set of reflections is unique</span>
-
-<span class="co"># Dataset 1</span>
-<span class="va">nrefs1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">refs1</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">nrefs1</span><span class="op">)</span>
-<span class="co">#&gt; [1] 3315</span>
-<span class="va">n_unique1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">refs1</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">n_unique1</span><span class="op">)</span>
-<span class="co">#&gt; [1] 3315</span>
-
-<span class="co"># Dataset 2</span>
-<span class="va">nrefs2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">nrefs2</span><span class="op">)</span>
-<span class="co">#&gt; [1] 27951</span>
-<span class="va">n_unique2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">n_unique2</span><span class="op">)</span>
-<span class="co">#&gt; [1] 27951</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Copy reflections data for the first and</span></span>
+<span><span class="co"># second dataset, to save on later typing</span></span>
+<span><span class="va">refs1</span> <span class="op">&lt;-</span> <span class="va">objXDS1</span><span class="op">$</span><span class="va">reflections</span></span>
+<span><span class="va">refs2</span> <span class="op">&lt;-</span> <span class="va">objXDS2</span><span class="op">$</span><span class="va">reflections</span></span>
+<span></span>
+<span><span class="co"># Check whether the set of reflections is unique</span></span>
+<span></span>
+<span><span class="co"># Dataset 1</span></span>
+<span><span class="va">nrefs1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">refs1</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">nrefs1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 3315</span></span>
+<span><span class="va">n_unique1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">refs1</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">n_unique1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 3315</span></span>
+<span></span>
+<span><span class="co"># Dataset 2</span></span>
+<span><span class="va">nrefs2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">nrefs2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 27951</span></span>
+<span><span class="va">n_unique2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">n_unique2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 27951</span></span></code></pre></div>
 <p>Both datasets have only one value per reflection. But the space group associated with the first dataset is P1, while the space group associated with the second dataset is P -3 1 c, belonging to the trigonal crystal system.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Space group of first dataset</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">objXDS1</span><span class="op">$</span><span class="va">header</span><span class="op">$</span><span class="va">SPACE_GROUP_NUMBER</span><span class="op">)</span>
-<span class="co">#&gt; [1] 1</span>
-
-<span class="co"># Space group of second dataset</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">objXDS2</span><span class="op">$</span><span class="va">header</span><span class="op">$</span><span class="va">SPACE_GROUP_NUMBER</span><span class="op">)</span>
-<span class="co">#&gt; [1] 163</span>
-
-<span class="co"># Extended Hermann-Mauguin symbol for symmetry n 163</span>
-<span class="va">SG</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/translate_SG.html">translate_SG</a></span><span class="op">(</span><span class="fl">163</span><span class="op">)</span><span class="op">$</span><span class="va">msg</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">SG</span><span class="op">)</span>
-<span class="co">#&gt; [1] "P -3 1 c"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Space group of first dataset</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">objXDS1</span><span class="op">$</span><span class="va">header</span><span class="op">$</span><span class="va">SPACE_GROUP_NUMBER</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 1</span></span>
+<span></span>
+<span><span class="co"># Space group of second dataset</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">objXDS2</span><span class="op">$</span><span class="va">header</span><span class="op">$</span><span class="va">SPACE_GROUP_NUMBER</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 163</span></span>
+<span></span>
+<span><span class="co"># Extended Hermann-Mauguin symbol for symmetry n 163</span></span>
+<span><span class="va">SG</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/translate_SG.html">translate_SG</a></span><span class="op">(</span><span class="fl">163</span><span class="op">)</span><span class="op">$</span><span class="va">msg</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">SG</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "P -3 1 c"</span></span></code></pre></div>
 <p>This means that while the reflections of the second file are actually the result of averaging among multiple values of equivalent reflections (both because of multiplicity and symmetry), those of the first file derive from averaging due to multiplicity; once the symmetry for the crystal structure has been established, some of the reflections will be related by symmetry and a new unique set can be calculated after the appropriate merging.</p>
 <p>Data selection can be carried out using conditions on the intensities, for example. Let us consider the second dataset and single out those reflections with <span class="math inline">\(\mathrm{I/sigI} &gt; 2\)</span>.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Names of data columns</span>
-<span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">)</span>
-<span class="co">#&gt; [1] "H"           "K"           "L"           "IOBS"        "SIGMA.IOBS."</span>
-
-<span class="co"># Selection based on I/sigI &gt; 2</span>
-<span class="va">idx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">$</span><span class="va">IOBS</span><span class="op">/</span><span class="va">refs2</span><span class="op">$</span><span class="va">SIGMA.IOBS</span> <span class="op">&gt;</span> <span class="fl">2</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">idx</span><span class="op">)</span><span class="op">)</span>  <span class="co">#  21579 reflections have I/sigI &gt; 2</span>
-<span class="co">#&gt; [1] 21579</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Names of data columns</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "H"           "K"           "L"           "IOBS"        "SIGMA.IOBS."</span></span>
+<span></span>
+<span><span class="co"># Selection based on I/sigI &gt; 2</span></span>
+<span><span class="va">idx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">$</span><span class="va">IOBS</span><span class="op">/</span><span class="va">refs2</span><span class="op">$</span><span class="va">SIGMA.IOBS</span> <span class="op">&gt;</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">idx</span><span class="op">)</span><span class="op">)</span>  <span class="co">#  21579 reflections have I/sigI &gt; 2</span></span>
+<span><span class="co">#&gt; [1] 21579</span></span></code></pre></div>
 <p>Visually, the separation between reflections with <span class="math inline">\(\mathrm{I/sigI} \leq 2\)</span> and those with <span class="math inline">\(\mathrm{I/sigI} &gt; 2\)</span> can be demonstrated with a frequency histogram.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Create new I/sigI array</span>
-<span class="va">isi</span> <span class="op">&lt;-</span> <span class="va">refs2</span><span class="op">$</span><span class="va">IOBS</span><span class="op">/</span><span class="va">refs2</span><span class="op">$</span><span class="va">SIGMA.IOBS</span>
-
-<span class="co"># Histogram </span>
-<span class="va">hh</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">isi</span>,breaks<span class="op">=</span><span class="fl">30</span>,plot<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>
-<span class="va">cuts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html" class="external-link">cut</a></span><span class="op">(</span><span class="va">hh</span><span class="op">$</span><span class="va">breaks</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="cn">Inf</span>,<span class="fl">2</span>,<span class="cn">Inf</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">hh</span>,main<span class="op">=</span><span class="st">"I/sigI"</span>,xlab<span class="op">=</span><span class="st">"I/sigI"</span>,col<span class="op">=</span><span class="va">cuts</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Create new I/sigI array</span></span>
+<span><span class="va">isi</span> <span class="op">&lt;-</span> <span class="va">refs2</span><span class="op">$</span><span class="va">IOBS</span><span class="op">/</span><span class="va">refs2</span><span class="op">$</span><span class="va">SIGMA.IOBS</span></span>
+<span></span>
+<span><span class="co"># Histogram </span></span>
+<span><span class="va">hh</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">isi</span>,breaks<span class="op">=</span><span class="fl">30</span>,plot<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">cuts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html" class="external-link">cut</a></span><span class="op">(</span><span class="va">hh</span><span class="op">$</span><span class="va">breaks</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="cn">Inf</span>,<span class="fl">2</span>,<span class="cn">Inf</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">hh</span>,main<span class="op">=</span><span class="st">"I/sigI"</span>,xlab<span class="op">=</span><span class="st">"I/sigI"</span>,col<span class="op">=</span><span class="va">cuts</span><span class="op">)</span></span></code></pre></div>
 <p><img src="XDS_files/figure-html/unnamed-chunk-10-1.png" width="480"></p>
 <p>Data selection can also follow a different ordering of the data. Consider again, in dataset 2, the first 10 reflections:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># First reflections in original data ordering</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,<span class="op">]</span><span class="op">)</span>
-<span class="co">#&gt;    H K  L     IOBS SIGMA.IOBS.</span>
-<span class="co">#&gt; 1  0 0  4   192900       78780</span>
-<span class="co">#&gt; 2  0 0  6  1707000      694600</span>
-<span class="co">#&gt; 3  0 0  8 16670000     6782000</span>
-<span class="co">#&gt; 4  0 0 10   224900       93500</span>
-<span class="co">#&gt; 5  0 0 12  7838000     3189000</span>
-<span class="co">#&gt; 6  0 0 14  3230000     1859000</span>
-<span class="co">#&gt; 7  0 0 16   118200       51690</span>
-<span class="co">#&gt; 8  0 0 18  2158000      878600</span>
-<span class="co">#&gt; 9  0 0 20    16970       35280</span>
-<span class="co">#&gt; 10 0 0 22   433600      181900</span>
-<span class="co"># </span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># First reflections in original data ordering</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,<span class="op">]</span><span class="op">)</span></span>
+<span><span class="co">#&gt;    H K  L     IOBS SIGMA.IOBS.</span></span>
+<span><span class="co">#&gt; 1  0 0  4   192900       78780</span></span>
+<span><span class="co">#&gt; 2  0 0  6  1707000      694600</span></span>
+<span><span class="co">#&gt; 3  0 0  8 16670000     6782000</span></span>
+<span><span class="co">#&gt; 4  0 0 10   224900       93500</span></span>
+<span><span class="co">#&gt; 5  0 0 12  7838000     3189000</span></span>
+<span><span class="co">#&gt; 6  0 0 14  3230000     1859000</span></span>
+<span><span class="co">#&gt; 7  0 0 16   118200       51690</span></span>
+<span><span class="co">#&gt; 8  0 0 18  2158000      878600</span></span>
+<span><span class="co">#&gt; 9  0 0 20    16970       35280</span></span>
+<span><span class="co">#&gt; 10 0 0 22   433600      181900</span></span>
+<span><span class="co"># </span></span></code></pre></div>
 <p>We could, next, sort the data from the largest to the smallest value of the intensity:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># First create the ordering index</span>
-<span class="va">idx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/order.html" class="external-link">order</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">$</span><span class="va">IOBS</span>,decreasing<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
-
-<span class="co"># Now display the first 10 reflections. They correspond to the</span>
-<span class="co"># 10 reflections with highest intensity</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">[</span><span class="va">idx</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span>,<span class="op">]</span><span class="op">)</span>
-<span class="co">#&gt;       H  K  L     IOBS SIGMA.IOBS.</span>
-<span class="co">#&gt; 13    0  0 28 18660000     7591000</span>
-<span class="co">#&gt; 3     0  0  8 16670000     6782000</span>
-<span class="co">#&gt; 1081  6 -2 -8 12950000     3746000</span>
-<span class="co">#&gt; 3753 11 -3  0 12730000     3999000</span>
-<span class="co">#&gt; 3996 11 -1 -3  9507000     2552000</span>
-<span class="co">#&gt; 120   2 -1 -2  9322000     3794000</span>
-<span class="co">#&gt; 9415 17  0 15  9287000     3168000</span>
-<span class="co">#&gt; 1396  7 -3 -6  9004000     3665000</span>
-<span class="co">#&gt; 3070 10 -3 -6  8756000     1967000</span>
-<span class="co">#&gt; 1807  8 -4 -4  8733000     2939000</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># First create the ordering index</span></span>
+<span><span class="va">idx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/order.html" class="external-link">order</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">$</span><span class="va">IOBS</span>,decreasing<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Now display the first 10 reflections. They correspond to the</span></span>
+<span><span class="co"># 10 reflections with highest intensity</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">[</span><span class="va">idx</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span>,<span class="op">]</span><span class="op">)</span></span>
+<span><span class="co">#&gt;       H  K  L     IOBS SIGMA.IOBS.</span></span>
+<span><span class="co">#&gt; 13    0  0 28 18660000     7591000</span></span>
+<span><span class="co">#&gt; 3     0  0  8 16670000     6782000</span></span>
+<span><span class="co">#&gt; 1081  6 -2 -8 12950000     3746000</span></span>
+<span><span class="co">#&gt; 3753 11 -3  0 12730000     3999000</span></span>
+<span><span class="co">#&gt; 3996 11 -1 -3  9507000     2552000</span></span>
+<span><span class="co">#&gt; 120   2 -1 -2  9322000     3794000</span></span>
+<span><span class="co">#&gt; 9415 17  0 15  9287000     3168000</span></span>
+<span><span class="co">#&gt; 1396  7 -3 -6  9004000     3665000</span></span>
+<span><span class="co">#&gt; 3070 10 -3 -6  8756000     1967000</span></span>
+<span><span class="co">#&gt; 1807  8 -4 -4  8733000     2939000</span></span></code></pre></div>
 <p>Or, we could sort the data according to the decreasing values of <span class="math inline">\(\mathrm{I/sigI}\)</span>:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Ordering index</span>
-<span class="va">idx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/order.html" class="external-link">order</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">$</span><span class="va">IOBS</span><span class="op">/</span><span class="va">refs2</span><span class="op">$</span><span class="va">SIGMA.IOBS</span>,decreasing<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
-
-<span class="co"># Display first 10 highest I/sigI reflections</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">[</span><span class="va">idx</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span>,<span class="op">]</span><span class="op">)</span>
-<span class="co">#&gt;       H  K   L    IOBS SIGMA.IOBS.</span>
-<span class="co">#&gt; 2481  9 -3  20 2202000      374000</span>
-<span class="co">#&gt; 166   2  0  17 2441000      415400</span>
-<span class="co">#&gt; 1200  6 -1 -14 2438000      416500</span>
-<span class="co">#&gt; 684   5 -2 -29 1052000      180700</span>
-<span class="co">#&gt; 2058  8 -2  31 1176000      202800</span>
-<span class="co">#&gt; 3345 10 -1  23 1599000      276000</span>
-<span class="co">#&gt; 1304  6  0  27 1944000      335900</span>
-<span class="co">#&gt; 1387  7 -3 -15 2502000      432500</span>
-<span class="co">#&gt; 1301  6  0  24 1534000      266000</span>
-<span class="co">#&gt; 1305  6  0  28 1262000      219000</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Ordering index</span></span>
+<span><span class="va">idx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/order.html" class="external-link">order</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">$</span><span class="va">IOBS</span><span class="op">/</span><span class="va">refs2</span><span class="op">$</span><span class="va">SIGMA.IOBS</span>,decreasing<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Display first 10 highest I/sigI reflections</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">[</span><span class="va">idx</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span>,<span class="op">]</span><span class="op">)</span></span>
+<span><span class="co">#&gt;       H  K   L    IOBS SIGMA.IOBS.</span></span>
+<span><span class="co">#&gt; 2481  9 -3  20 2202000      374000</span></span>
+<span><span class="co">#&gt; 166   2  0  17 2441000      415400</span></span>
+<span><span class="co">#&gt; 1200  6 -1 -14 2438000      416500</span></span>
+<span><span class="co">#&gt; 684   5 -2 -29 1052000      180700</span></span>
+<span><span class="co">#&gt; 2058  8 -2  31 1176000      202800</span></span>
+<span><span class="co">#&gt; 3345 10 -1  23 1599000      276000</span></span>
+<span><span class="co">#&gt; 1304  6  0  27 1944000      335900</span></span>
+<span><span class="co">#&gt; 1387  7 -3 -15 2502000      432500</span></span>
+<span><span class="co">#&gt; 1301  6  0  24 1534000      266000</span></span>
+<span><span class="co">#&gt; 1305  6  0  28 1262000      219000</span></span></code></pre></div>
 <p>To verify that the operation is correct, we can add a new column to the original <code>refs2</code> data frame and verify that the previous ordering corresponds, indeed, to decreasing values of <span class="math inline">\(\mathrm{I/sigI}\)</span>:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Add an I/sigI column</span>
-<span class="va">refs2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">refs2</span>,<span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>IsigI<span class="op">=</span><span class="va">refs2</span><span class="op">$</span><span class="va">IOBS</span><span class="op">/</span><span class="va">refs2</span><span class="op">$</span><span class="va">SIGMA.IOBS</span><span class="op">)</span><span class="op">)</span>
-
-<span class="co"># Now display with the order previously obtained</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">[</span><span class="va">idx</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span>,<span class="op">]</span><span class="op">)</span>
-<span class="co">#&gt;       H  K   L    IOBS SIGMA.IOBS.    IsigI</span>
-<span class="co">#&gt; 2481  9 -3  20 2202000      374000 5.887701</span>
-<span class="co">#&gt; 166   2  0  17 2441000      415400 5.876264</span>
-<span class="co">#&gt; 1200  6 -1 -14 2438000      416500 5.853541</span>
-<span class="co">#&gt; 684   5 -2 -29 1052000      180700 5.821804</span>
-<span class="co">#&gt; 2058  8 -2  31 1176000      202800 5.798817</span>
-<span class="co">#&gt; 3345 10 -1  23 1599000      276000 5.793478</span>
-<span class="co">#&gt; 1304  6  0  27 1944000      335900 5.787437</span>
-<span class="co">#&gt; 1387  7 -3 -15 2502000      432500 5.784971</span>
-<span class="co">#&gt; 1301  6  0  24 1534000      266000 5.766917</span>
-<span class="co">#&gt; 1305  6  0  28 1262000      219000 5.762557</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Add an I/sigI column</span></span>
+<span><span class="va">refs2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">refs2</span>,<span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>IsigI<span class="op">=</span><span class="va">refs2</span><span class="op">$</span><span class="va">IOBS</span><span class="op">/</span><span class="va">refs2</span><span class="op">$</span><span class="va">SIGMA.IOBS</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Now display with the order previously obtained</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">[</span><span class="va">idx</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span>,<span class="op">]</span><span class="op">)</span></span>
+<span><span class="co">#&gt;       H  K   L    IOBS SIGMA.IOBS.    IsigI</span></span>
+<span><span class="co">#&gt; 2481  9 -3  20 2202000      374000 5.887701</span></span>
+<span><span class="co">#&gt; 166   2  0  17 2441000      415400 5.876264</span></span>
+<span><span class="co">#&gt; 1200  6 -1 -14 2438000      416500 5.853541</span></span>
+<span><span class="co">#&gt; 684   5 -2 -29 1052000      180700 5.821804</span></span>
+<span><span class="co">#&gt; 2058  8 -2  31 1176000      202800 5.798817</span></span>
+<span><span class="co">#&gt; 3345 10 -1  23 1599000      276000 5.793478</span></span>
+<span><span class="co">#&gt; 1304  6  0  27 1944000      335900 5.787437</span></span>
+<span><span class="co">#&gt; 1387  7 -3 -15 2502000      432500 5.784971</span></span>
+<span><span class="co">#&gt; 1301  6  0  24 1534000      266000 5.766917</span></span>
+<span><span class="co">#&gt; 1305  6  0  28 1262000      219000 5.762557</span></span></code></pre></div>
 <p>We can also carry out routine statistics of the values of the data frame. It is very quick, for instance, to obtain summary statistics for all the columns:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">)</span>
-<span class="co">#&gt;        H               K                 L                IOBS         </span>
-<span class="co">#&gt;  Min.   : 0.00   Min.   :-15.000   Min.   :-62.000   Min.   : -537600  </span>
-<span class="co">#&gt;  1st Qu.:15.00   1st Qu.: -8.000   1st Qu.:-28.000   1st Qu.:  202750  </span>
-<span class="co">#&gt;  Median :21.00   Median : -4.000   Median :  4.000   Median :  417600  </span>
-<span class="co">#&gt;  Mean   :20.15   Mean   : -5.041   Mean   :  1.997   Mean   :  635462  </span>
-<span class="co">#&gt;  3rd Qu.:26.00   3rd Qu.: -2.000   3rd Qu.: 32.000   3rd Qu.:  810750  </span>
-<span class="co">#&gt;  Max.   :30.00   Max.   :  0.000   Max.   : 62.000   Max.   :18660000  </span>
-<span class="co">#&gt;   SIGMA.IOBS.          IsigI       </span>
-<span class="co">#&gt;  Min.   :   2992   Min.   :-1.085  </span>
-<span class="co">#&gt;  1st Qu.:  91430   1st Qu.: 2.089  </span>
-<span class="co">#&gt;  Median : 144600   Median : 2.920  </span>
-<span class="co">#&gt;  Mean   : 196604   Mean   : 2.868  </span>
-<span class="co">#&gt;  3rd Qu.: 238500   3rd Qu.: 3.684  </span>
-<span class="co">#&gt;  Max.   :7591000   Max.   : 5.888</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">)</span></span>
+<span><span class="co">#&gt;        H               K                 L                IOBS         </span></span>
+<span><span class="co">#&gt;  Min.   : 0.00   Min.   :-15.000   Min.   :-62.000   Min.   : -537600  </span></span>
+<span><span class="co">#&gt;  1st Qu.:15.00   1st Qu.: -8.000   1st Qu.:-28.000   1st Qu.:  202750  </span></span>
+<span><span class="co">#&gt;  Median :21.00   Median : -4.000   Median :  4.000   Median :  417600  </span></span>
+<span><span class="co">#&gt;  Mean   :20.15   Mean   : -5.041   Mean   :  1.997   Mean   :  635462  </span></span>
+<span><span class="co">#&gt;  3rd Qu.:26.00   3rd Qu.: -2.000   3rd Qu.: 32.000   3rd Qu.:  810750  </span></span>
+<span><span class="co">#&gt;  Max.   :30.00   Max.   :  0.000   Max.   : 62.000   Max.   :18660000  </span></span>
+<span><span class="co">#&gt;   SIGMA.IOBS.          IsigI       </span></span>
+<span><span class="co">#&gt;  Min.   :   2992   Min.   :-1.085  </span></span>
+<span><span class="co">#&gt;  1st Qu.:  91430   1st Qu.: 2.089  </span></span>
+<span><span class="co">#&gt;  Median : 144600   Median : 2.920  </span></span>
+<span><span class="co">#&gt;  Mean   : 196604   Mean   : 2.868  </span></span>
+<span><span class="co">#&gt;  3rd Qu.: 238500   3rd Qu.: 3.684  </span></span>
+<span><span class="co">#&gt;  Max.   :7591000   Max.   : 5.888</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="specific-types-of-data-visualisation">Specific types of data visualisation<a class="anchor" aria-label="anchor" href="#specific-types-of-data-visualisation"></a>
 </h2>
 <p>The advantage of having crystallographic data imported in R is that they can be exposed to several types of data visualisation and statistical analysis available in the platform. In this section an histogram visualisation has been created for the original dataset, in which that part of the histogram corresponding to <span class="math inline">\(\mathrm{I/sigI} &gt; 2\)</span> is coloured differently. This is not an operation easily achievable with standard crystallographic software, but relatively easy to carry out using R.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Initial histogram</span>
-<span class="va">mtxt</span> <span class="op">&lt;-</span> <span class="st">"I/sigI and top quartile for I"</span>
-<span class="va">hh</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">$</span><span class="va">IOBS</span><span class="op">/</span><span class="va">refs2</span><span class="op">$</span><span class="va">SIGMA.IOBS</span>,breaks<span class="op">=</span><span class="fl">30</span>,main<span class="op">=</span><span class="va">mtxt</span>,
-           xlab<span class="op">=</span><span class="st">"I/sigI"</span><span class="op">)</span>
-
-<span class="co"># Find top quartile of I</span>
-<span class="va">top_qt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">$</span><span class="va">IOBS</span><span class="op">)</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span>
-
-<span class="co"># Data with absolute intensity in the top quartile</span>
-<span class="va">idx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">$</span><span class="va">IOBS</span> <span class="op">&gt;=</span> <span class="va">top_qt</span><span class="op">)</span>
-
-<span class="co"># Colour portion of histogram in red</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">$</span><span class="va">IOBS</span><span class="op">[</span><span class="va">idx</span><span class="op">]</span><span class="op">/</span><span class="va">refs2</span><span class="op">$</span><span class="va">SIGMA.IOBS</span><span class="op">[</span><span class="va">idx</span><span class="op">]</span>,breaks<span class="op">=</span><span class="fl">30</span>,col<span class="op">=</span><span class="fl">2</span>,add<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Initial histogram</span></span>
+<span><span class="va">mtxt</span> <span class="op">&lt;-</span> <span class="st">"I/sigI and top quartile for I"</span></span>
+<span><span class="va">hh</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">$</span><span class="va">IOBS</span><span class="op">/</span><span class="va">refs2</span><span class="op">$</span><span class="va">SIGMA.IOBS</span>,breaks<span class="op">=</span><span class="fl">30</span>,main<span class="op">=</span><span class="va">mtxt</span>,</span>
+<span>           xlab<span class="op">=</span><span class="st">"I/sigI"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Find top quartile of I</span></span>
+<span><span class="va">top_qt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">$</span><span class="va">IOBS</span><span class="op">)</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Data with absolute intensity in the top quartile</span></span>
+<span><span class="va">idx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">$</span><span class="va">IOBS</span> <span class="op">&gt;=</span> <span class="va">top_qt</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Colour portion of histogram in red</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">$</span><span class="va">IOBS</span><span class="op">[</span><span class="va">idx</span><span class="op">]</span><span class="op">/</span><span class="va">refs2</span><span class="op">$</span><span class="va">SIGMA.IOBS</span><span class="op">[</span><span class="va">idx</span><span class="op">]</span>,breaks<span class="op">=</span><span class="fl">30</span>,col<span class="op">=</span><span class="fl">2</span>,add<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="XDS_files/figure-html/unnamed-chunk-16-1.png" width="480"></p>
 <p>Another useful but not easily available visualisation is with histograms where lowest or highest resolutions are highlighted in a different colour. A resolution vector with the same ordering of the original data frame must first be calculated with the <code>cry</code> function <code>hkl_to_reso</code> and this can be then used to select data with wanted resolution.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Cell parameters are needed to calculate resolutions</span>
-<span class="va">cpars</span> <span class="op">&lt;-</span> <span class="va">objXDS2</span><span class="op">$</span><span class="va">header</span><span class="op">$</span><span class="va">UNIT_CELL_CONSTANTS</span>
-
-<span class="co"># Resolutions in angstroms. (resos has been computed previously)</span>
-<span class="va">resos</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/hkl_to_reso.html">hkl_to_reso</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">$</span><span class="va">H</span>,<span class="va">refs2</span><span class="op">$</span><span class="va">K</span>,<span class="va">refs2</span><span class="op">$</span><span class="va">L</span>,<span class="va">cpars</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,<span class="va">cpars</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>,<span class="va">cpars</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>,
-                     <span class="va">cpars</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span>,<span class="va">cpars</span><span class="op">[</span><span class="fl">5</span><span class="op">]</span>,<span class="va">cpars</span><span class="op">[</span><span class="fl">6</span><span class="op">]</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">resos</span><span class="op">)</span>
-<span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span>
-<span class="co">#&gt;   1.785   2.314   3.226   3.957   4.776  49.263</span>
-
-<span class="co"># Select high resolution data ( &lt;= 2 angstroms)</span>
-<span class="va">idx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">resos</span> <span class="op">&lt;=</span> <span class="fl">2</span><span class="op">)</span>
-
-<span class="co"># Now draw the histogram</span>
-<span class="va">mtxt</span> <span class="op">&lt;-</span> <span class="st">"I/sigI and top quartile for I"</span>
-<span class="va">hh</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">$</span><span class="va">IOBS</span><span class="op">/</span><span class="va">refs2</span><span class="op">$</span><span class="va">SIGMA.IOBS</span>,breaks<span class="op">=</span><span class="fl">30</span>,main<span class="op">=</span><span class="va">mtxt</span>,
-           xlab<span class="op">=</span><span class="st">"I/sigI"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">$</span><span class="va">IOBS</span><span class="op">[</span><span class="va">idx</span><span class="op">]</span><span class="op">/</span><span class="va">refs2</span><span class="op">$</span><span class="va">SIGMA.IOBS</span><span class="op">[</span><span class="va">idx</span><span class="op">]</span>,breaks<span class="op">=</span><span class="fl">30</span>,col<span class="op">=</span><span class="fl">2</span>,add<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Cell parameters are needed to calculate resolutions</span></span>
+<span><span class="va">cpars</span> <span class="op">&lt;-</span> <span class="va">objXDS2</span><span class="op">$</span><span class="va">header</span><span class="op">$</span><span class="va">UNIT_CELL_CONSTANTS</span></span>
+<span></span>
+<span><span class="co"># Resolutions in angstroms. (resos has been computed previously)</span></span>
+<span><span class="va">resos</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/hkl_to_reso.html">hkl_to_reso</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">$</span><span class="va">H</span>,<span class="va">refs2</span><span class="op">$</span><span class="va">K</span>,<span class="va">refs2</span><span class="op">$</span><span class="va">L</span>,<span class="va">cpars</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,<span class="va">cpars</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>,<span class="va">cpars</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>,</span>
+<span>                     <span class="va">cpars</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span>,<span class="va">cpars</span><span class="op">[</span><span class="fl">5</span><span class="op">]</span>,<span class="va">cpars</span><span class="op">[</span><span class="fl">6</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">resos</span><span class="op">)</span></span>
+<span><span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span></span>
+<span><span class="co">#&gt;   1.785   2.314   3.226   3.957   4.776  49.263</span></span>
+<span></span>
+<span><span class="co"># Select high resolution data ( &lt;= 2 angstroms)</span></span>
+<span><span class="va">idx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">resos</span> <span class="op">&lt;=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Now draw the histogram</span></span>
+<span><span class="va">mtxt</span> <span class="op">&lt;-</span> <span class="st">"I/sigI and top quartile for I"</span></span>
+<span><span class="va">hh</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">$</span><span class="va">IOBS</span><span class="op">/</span><span class="va">refs2</span><span class="op">$</span><span class="va">SIGMA.IOBS</span>,breaks<span class="op">=</span><span class="fl">30</span>,main<span class="op">=</span><span class="va">mtxt</span>,</span>
+<span>           xlab<span class="op">=</span><span class="st">"I/sigI"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">refs2</span><span class="op">$</span><span class="va">IOBS</span><span class="op">[</span><span class="va">idx</span><span class="op">]</span><span class="op">/</span><span class="va">refs2</span><span class="op">$</span><span class="va">SIGMA.IOBS</span><span class="op">[</span><span class="va">idx</span><span class="op">]</span>,breaks<span class="op">=</span><span class="fl">30</span>,col<span class="op">=</span><span class="fl">2</span>,add<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="XDS_files/figure-html/unnamed-chunk-17-1.png" width="480"></p>
 <p>The above histogram reflects the unfortunate circumstance in structural x-ray crystallography, according to which high resolution data correspond on average to weak intensities.</p>
 </div>
@@ -369,39 +369,39 @@
 <p>The necessity to modify existing XDS ascii files or to simulate new ones (by developers to test software, for example) can be satisfied with the use of the <code>writeXDS_ASCII</code> function. The nature and quality of the file produced will depend on the feasibility and accuracy of the information provided. For this reason, it is more difficult to write an XDS ascii file for unmerged data because a lot of information of an experimental nature has to be provided so to produce a sensible header.</p>
 <p>In this section the original data from the “6vww_xds_ascii_merged.hkl” file will be truncated to 2 angstroms and written to a new XDS ascii file with a different date.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Date</span>
-<span class="va">ddd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.Date</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-<span class="va">stmp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit</a></span><span class="op">(</span><span class="va">ddd</span>,<span class="st">"-"</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>
-<span class="va">allMonths</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Jan"</span>,<span class="st">"Feb"</span>,<span class="st">"Mar"</span>,<span class="st">"Apr"</span>,<span class="st">"May"</span>,<span class="st">"Jun"</span>,
-               <span class="st">"Jul"</span>,<span class="st">"Aug"</span>,<span class="st">"Sep"</span>,<span class="st">"Oct"</span>,<span class="st">"Nov"</span>,<span class="st">"Dec"</span><span class="op">)</span>
-<span class="va">objXDS2</span><span class="op">$</span><span class="va">header</span><span class="op">$</span><span class="va">DATE</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="va">stmp</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>,<span class="st">"-"</span>,
-            <span class="va">allMonths</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">as.integer</a></span><span class="op">(</span><span class="va">stmp</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span><span class="op">]</span>,<span class="st">"-"</span>,<span class="va">stmp</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span>
-
-<span class="co"># Generated by</span>
-<span class="va">objXDS2</span><span class="op">$</span><span class="va">header</span><span class="op">$</span><span class="va">GENERATED_BY</span> <span class="op">&lt;-</span> <span class="st">"CRY"</span>
-
-<span class="co"># Data to 2 angstroms resolution</span>
-<span class="va">idx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">resos</span> <span class="op">&gt;=</span> <span class="fl">2</span><span class="op">)</span>
-<span class="va">objXDS2</span><span class="op">$</span><span class="va">reflections</span> <span class="op">&lt;-</span> <span class="va">objXDS2</span><span class="op">$</span><span class="va">reflections</span><span class="op">[</span><span class="va">idx</span>,<span class="op">]</span>
-
-<span class="co"># Temporary directory for output</span>
-<span class="va">tdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>
-<span class="va">fname</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">tdir</span>,<span class="st">"new.hkl"</span><span class="op">)</span>
-
-<span class="co"># Write changed data to the new XDS ascii file</span>
-<span class="fu"><a href="../reference/writeXDS_ASCII.html">writeXDS_ASCII</a></span><span class="op">(</span><span class="va">objXDS2</span><span class="op">$</span><span class="va">processing_info</span>,<span class="va">objXDS2</span><span class="op">$</span><span class="va">header</span>,
-               <span class="va">objXDS2</span><span class="op">$</span><span class="va">reflections</span>,<span class="va">fname</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Date</span></span>
+<span><span class="va">ddd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.Date</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">stmp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit</a></span><span class="op">(</span><span class="va">ddd</span>,<span class="st">"-"</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
+<span><span class="va">allMonths</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Jan"</span>,<span class="st">"Feb"</span>,<span class="st">"Mar"</span>,<span class="st">"Apr"</span>,<span class="st">"May"</span>,<span class="st">"Jun"</span>,</span>
+<span>               <span class="st">"Jul"</span>,<span class="st">"Aug"</span>,<span class="st">"Sep"</span>,<span class="st">"Oct"</span>,<span class="st">"Nov"</span>,<span class="st">"Dec"</span><span class="op">)</span></span>
+<span><span class="va">objXDS2</span><span class="op">$</span><span class="va">header</span><span class="op">$</span><span class="va">DATE</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="va">stmp</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>,<span class="st">"-"</span>,</span>
+<span>            <span class="va">allMonths</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">as.integer</a></span><span class="op">(</span><span class="va">stmp</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span><span class="op">]</span>,<span class="st">"-"</span>,<span class="va">stmp</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Generated by</span></span>
+<span><span class="va">objXDS2</span><span class="op">$</span><span class="va">header</span><span class="op">$</span><span class="va">GENERATED_BY</span> <span class="op">&lt;-</span> <span class="st">"CRY"</span></span>
+<span></span>
+<span><span class="co"># Data to 2 angstroms resolution</span></span>
+<span><span class="va">idx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">resos</span> <span class="op">&gt;=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">objXDS2</span><span class="op">$</span><span class="va">reflections</span> <span class="op">&lt;-</span> <span class="va">objXDS2</span><span class="op">$</span><span class="va">reflections</span><span class="op">[</span><span class="va">idx</span>,<span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Temporary directory for output</span></span>
+<span><span class="va">tdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">fname</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">tdir</span>,<span class="st">"new.hkl"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Write changed data to the new XDS ascii file</span></span>
+<span><span class="fu"><a href="../reference/writeXDS_ASCII.html">writeXDS_ASCII</a></span><span class="op">(</span><span class="va">objXDS2</span><span class="op">$</span><span class="va">processing_info</span>,<span class="va">objXDS2</span><span class="op">$</span><span class="va">header</span>,</span>
+<span>               <span class="va">objXDS2</span><span class="op">$</span><span class="va">reflections</span>,<span class="va">fname</span><span class="op">)</span></span></code></pre></div>
 <p>Data from the new XDS ascii file can either be explored using XDS software, or read back into R using again <code>readXDS_ASCII</code>.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Read data from "new.hkl"</span>
-<span class="va">newXDS</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readXDS_ASCII.html">readXDS_ASCII</a></span><span class="op">(</span><span class="va">fname</span>,message<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;  File read successfully.</span>
-<span class="co">#&gt;  There are 24689 reflections in this file.</span>
-<span class="co">#&gt;  Here is a summary of the observations:</span>
-<span class="co">#&gt;  </span>
-<span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span>
-<span class="co">#&gt;  -1.085   2.383   3.091   3.062   3.782   5.888</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Read data from "new.hkl"</span></span>
+<span><span class="va">newXDS</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readXDS_ASCII.html">readXDS_ASCII</a></span><span class="op">(</span><span class="va">fname</span>,message<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  File read successfully.</span></span>
+<span><span class="co">#&gt;  There are 24689 reflections in this file.</span></span>
+<span><span class="co">#&gt;  Here is a summary of the observations:</span></span>
+<span><span class="co">#&gt;  </span></span>
+<span><span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span></span>
+<span><span class="co">#&gt;  -1.085   2.383   3.091   3.062   3.782   5.888</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
@@ -416,7 +416,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
     </footer>

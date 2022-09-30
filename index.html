@@ -18,8 +18,8 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link href="deps/bootstrap-5.1.3/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.1.3/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Statistics for Structural Crystallography">
 <meta property="og:description" content="Reading and writing of files in the most commonly used formats of
@@ -86,60 +86,60 @@
 </h2>
 <p>You can install the released version of crone from <a href="https://CRAN.R-project.org" class="external-link">CRAN</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"cry"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"cry"</span><span class="op">)</span></span></code></pre></div>
 <p>And the development version from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"jfoadi/cry"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"jfoadi/cry"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
 <p>This is a simple example in which a CIF file containing structure factors is read and a part of its data used for statistical analysis. The file is included as example file in <em>cry</em> and is called <em>1dei-sf.cif</em>. The first task is to import the data in R.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Load cry package</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jfoadi.github.io/cry/">cry</a></span><span class="op">)</span>
-
-<span class="co"># Save CIF data in a named list</span>
-<span class="va">datadir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>,package<span class="op">=</span><span class="st">"cry"</span><span class="op">)</span>
-<span class="va">filename</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">datadir</span>,<span class="st">"1dei-sf.cif"</span><span class="op">)</span>
-<span class="va">lCIF</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/readSF_CIF.html">readSF_CIF</a></span><span class="op">(</span><span class="va">filename</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Load cry package</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jfoadi.github.io/cry/">cry</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Save CIF data in a named list</span></span>
+<span><span class="va">datadir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>,package<span class="op">=</span><span class="st">"cry"</span><span class="op">)</span></span>
+<span><span class="va">filename</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">datadir</span>,<span class="st">"1dei-sf.cif"</span><span class="op">)</span></span>
+<span><span class="va">lCIF</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/readSF_CIF.html">readSF_CIF</a></span><span class="op">(</span><span class="va">filename</span><span class="op">)</span></span></code></pre></div>
 <p>The newly-created R object, a list called <code>lCIF</code>, contains all that is included in the CIF file, but within a structure that can be used within R for various analyses. The components of this list can be readily explored using the common R functions <code>names</code>, <code>class</code> and <code>str</code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># What's containe in lCIF?</span>
-<span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">lCIF</span><span class="op">)</span>
-<span class="co">#&gt; [1] "HEADER" "SYMM"   "REFL"</span>
-
-<span class="co"># What's the header?</span>
-<span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">lCIF</span><span class="op">$</span><span class="va">HEADER</span><span class="op">)</span>   <span class="co"># It's a list</span>
-<span class="co">#&gt; [1] "list"</span>
-
-<span class="co"># Is it a named list?</span>
-<span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">lCIF</span><span class="op">$</span><span class="va">HEADER</span><span class="op">)</span>  <span class="co"># Yes</span>
-<span class="co">#&gt; [1] "TITLE"      "CELL"       "SGN"        "HALL"       "HM"        </span>
-<span class="co">#&gt; [6] "SHELX_CODE" "F_000"      "HIGH_RES"</span>
-
-<span class="co"># What's the space group name for this crystal structure?</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">lCIF</span><span class="op">$</span><span class="va">HEADER</span><span class="op">$</span><span class="va">HM</span><span class="op">)</span>
-<span class="co">#&gt; [1] NA</span>
-
-<span class="co"># What's the space group number corresponding to P 21 21 21?</span>
-<span class="co"># Use one of cry's functions</span>
-<span class="va">xHM</span> <span class="op">&lt;-</span> <span class="va">lCIF</span><span class="op">$</span><span class="va">HEADER</span><span class="op">$</span><span class="va">HM</span>
-<span class="fu"><a href="reference/translate_SG.html">translate_SG</a></span><span class="op">(</span><span class="va">xHM</span>,SG_in<span class="op">=</span><span class="st">"xHM"</span>,SG_out<span class="op">=</span><span class="st">"number"</span><span class="op">)</span><span class="op">$</span><span class="va">msg</span>
-<span class="co">#&gt; [1] "Something wrong in your input:\n   1) the symbol or number input for this space group does not exist\n   2) if your inpur was a number, perhaps for this space group there are not that many settings"</span>
-
-<span class="co"># ... and the unit cell parameters?</span>
-<span class="va">cpars</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">lCIF</span><span class="op">$</span><span class="va">HEADER</span><span class="op">$</span><span class="va">CELL</span><span class="op">$</span><span class="va">A</span><span class="op">$</span><span class="va">VAL</span>,<span class="va">lCIF</span><span class="op">$</span><span class="va">HEADER</span><span class="op">$</span><span class="va">CELL</span><span class="op">$</span><span class="va">B</span><span class="op">$</span><span class="va">VAL</span>,
-           <span class="va">lCIF</span><span class="op">$</span><span class="va">HEADER</span><span class="op">$</span><span class="va">CELL</span><span class="op">$</span><span class="va">C</span><span class="op">$</span><span class="va">VAL</span>,<span class="va">lCIF</span><span class="op">$</span><span class="va">HEADER</span><span class="op">$</span><span class="va">CELL</span><span class="op">$</span><span class="va">ALPHA</span><span class="op">$</span><span class="va">VAL</span>,
-           <span class="va">lCIF</span><span class="op">$</span><span class="va">HEADER</span><span class="op">$</span><span class="va">CELL</span><span class="op">$</span><span class="va">BETA</span><span class="op">$</span><span class="va">VAL</span>,<span class="va">lCIF</span><span class="op">$</span><span class="va">HEADER</span><span class="op">$</span><span class="va">CELL</span><span class="op">$</span><span class="va">GAMMA</span><span class="op">$</span><span class="va">VAL</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">cpars</span><span class="op">)</span>
-<span class="co">#&gt; [1] NA NA NA NA NA NA</span>
-
-<span class="co"># The unit cell belongs to the orthorombic system,</span>
-<span class="co"># as it should be, due to symmetry (cry function)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="reference/crystal_system.html">crystal_system</a></span><span class="op">(</span>gn<span class="op">=</span><span class="fl">19</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; [1] "ORTHOROMBIC"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># What's containe in lCIF?</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">lCIF</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "HEADER" "SYMM"   "REFL"</span></span>
+<span></span>
+<span><span class="co"># What's the header?</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">lCIF</span><span class="op">$</span><span class="va">HEADER</span><span class="op">)</span>   <span class="co"># It's a list</span></span>
+<span><span class="co">#&gt; [1] "list"</span></span>
+<span></span>
+<span><span class="co"># Is it a named list?</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">lCIF</span><span class="op">$</span><span class="va">HEADER</span><span class="op">)</span>  <span class="co"># Yes</span></span>
+<span><span class="co">#&gt; [1] "TITLE"      "CELL"       "SGN"        "HALL"       "HM"        </span></span>
+<span><span class="co">#&gt; [6] "SHELX_CODE" "F_000"      "HIGH_RES"</span></span>
+<span></span>
+<span><span class="co"># What's the space group name for this crystal structure?</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">lCIF</span><span class="op">$</span><span class="va">HEADER</span><span class="op">$</span><span class="va">HM</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] NA</span></span>
+<span></span>
+<span><span class="co"># What's the space group number corresponding to P 21 21 21?</span></span>
+<span><span class="co"># Use one of cry's functions</span></span>
+<span><span class="va">xHM</span> <span class="op">&lt;-</span> <span class="va">lCIF</span><span class="op">$</span><span class="va">HEADER</span><span class="op">$</span><span class="va">HM</span></span>
+<span><span class="fu"><a href="reference/translate_SG.html">translate_SG</a></span><span class="op">(</span><span class="va">xHM</span>,SG_in<span class="op">=</span><span class="st">"xHM"</span>,SG_out<span class="op">=</span><span class="st">"number"</span><span class="op">)</span><span class="op">$</span><span class="va">msg</span></span>
+<span><span class="co">#&gt; [1] "Something wrong in your input:\n   1) the symbol or number input for this space group does not exist\n   2) if your inpur was a number, perhaps for this space group there are not that many settings"</span></span>
+<span></span>
+<span><span class="co"># ... and the unit cell parameters?</span></span>
+<span><span class="va">cpars</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">lCIF</span><span class="op">$</span><span class="va">HEADER</span><span class="op">$</span><span class="va">CELL</span><span class="op">$</span><span class="va">A</span><span class="op">$</span><span class="va">VAL</span>,<span class="va">lCIF</span><span class="op">$</span><span class="va">HEADER</span><span class="op">$</span><span class="va">CELL</span><span class="op">$</span><span class="va">B</span><span class="op">$</span><span class="va">VAL</span>,</span>
+<span>           <span class="va">lCIF</span><span class="op">$</span><span class="va">HEADER</span><span class="op">$</span><span class="va">CELL</span><span class="op">$</span><span class="va">C</span><span class="op">$</span><span class="va">VAL</span>,<span class="va">lCIF</span><span class="op">$</span><span class="va">HEADER</span><span class="op">$</span><span class="va">CELL</span><span class="op">$</span><span class="va">ALPHA</span><span class="op">$</span><span class="va">VAL</span>,</span>
+<span>           <span class="va">lCIF</span><span class="op">$</span><span class="va">HEADER</span><span class="op">$</span><span class="va">CELL</span><span class="op">$</span><span class="va">BETA</span><span class="op">$</span><span class="va">VAL</span>,<span class="va">lCIF</span><span class="op">$</span><span class="va">HEADER</span><span class="op">$</span><span class="va">CELL</span><span class="op">$</span><span class="va">GAMMA</span><span class="op">$</span><span class="va">VAL</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">cpars</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] NA NA NA NA NA NA</span></span>
+<span></span>
+<span><span class="co"># The unit cell belongs to the orthorombic system,</span></span>
+<span><span class="co"># as it should be, due to symmetry (cry function)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="reference/crystal_system.html">crystal_system</a></span><span class="op">(</span>gn<span class="op">=</span><span class="fl">19</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "ORTHOROMBIC"</span></span></code></pre></div>
 <p>The most important bit in the CIF file are the observed reflections (coming from x-ray diffraction of one or more crystals). They are contained in the named list <code>REFL</code>. All CIF files have a <code>VAL</code> field reporting the specific observed quantity and a field <code>STD</code> reporting the corresponding experimental error. Not always the last one is available. The <code>VAL</code> field is an R data frame that makes these data suitable to further analysis within R. The <code>STD</code> field mirrors <code>VAL</code>, but with the experimental errors counterparts, if available, otherwise it is <code>NULL</code>, as in the case here reported.</p>
 </div>
 </div>
@@ -193,7 +193,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
     </footer>

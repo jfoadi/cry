@@ -115,6 +115,12 @@
     <loc>https://jfoadi.github.io/cry/reference/expand_au.html</loc>
   </url>
   <url>
+    <loc>https://jfoadi.github.io/cry/reference/expand_miller.html</loc>
+  </url>
+  <url>
+    <loc>https://jfoadi.github.io/cry/reference/expand_structure_factors.html</loc>
+  </url>
+  <url>
     <loc>https://jfoadi.github.io/cry/reference/extract_symmetry_info.html</loc>
   </url>
   <url>
@@ -137,6 +143,9 @@
   </url>
   <url>
     <loc>https://jfoadi.github.io/cry/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://jfoadi.github.io/cry/reference/invfousynth3D.html</loc>
   </url>
   <url>
     <loc>https://jfoadi.github.io/cry/reference/lattice_stuff.html</loc>
@@ -209,6 +218,9 @@
   </url>
   <url>
     <loc>https://jfoadi.github.io/cry/reference/rec_unit_cell.html</loc>
+  </url>
+  <url>
+    <loc>https://jfoadi.github.io/cry/reference/reduce_miller.html</loc>
   </url>
   <url>
     <loc>https://jfoadi.github.io/cry/reference/scafac.html</loc>
