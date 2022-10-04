@@ -146,6 +146,7 @@ phase of specific structure factors having precise values (e.g. 0, 90,
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Creation of structure factors</span></span></span>
 <span class="r-in"><span><span class="va">lSF</span> <span class="op">&lt;-</span> <span class="fu">strufac</span><span class="op">(</span><span class="va">hkl</span>,<span class="va">xyzf</span>,<span class="va">aname</span>,<span class="va">B</span>,<span class="va">Occ</span>,<span class="va">SG</span>,<span class="va">cpars</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in strufac(hkl, xyzf, aname, B, Occ, SG, cpars):</span> could not find function "strufac"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Check systematic absences (give lSF$F = 0)</span></span></span>
 <span class="r-in"><span><span class="co"># For P 21 21 21 they are:</span></span></span>
@@ -164,17 +165,13 @@ phase of specific structure factors having precise values (e.g. 0, 90,
 <span class="r-out co"><span class="r-pr">#&gt;</span> 68  0  1  0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 88  0  0  1</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">lSF</span><span class="op">$</span><span class="cn">F</span><span class="op">[</span><span class="va">idx</span><span class="op">]</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0 0 0 0 0 0</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in print(lSF$F[idx]):</span> object 'lSF' not found</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Now check reflections with (h,k,0). h even has phase 0,180</span></span></span>
 <span class="r-in"><span><span class="co"># and h odd has phase 90,270</span></span></span>
 <span class="r-in"><span><span class="va">idx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">hkl</span><span class="op">[</span>,<span class="fl">3</span><span class="op">]</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">lSF</span><span class="op">$</span><span class="va">phi</span><span class="op">[</span><span class="va">idx</span><span class="op">]</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1.800000e+02 9.000000e+01 1.800000e+02 9.000000e+01 1.800000e+02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] 1.800000e+02 9.000000e+01 0.000000e+00 2.700000e+02 3.600000e+02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [11] 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [16] 9.175926e-15 9.000000e+01 0.000000e+00 2.700000e+02 1.800000e+02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [21] 1.800000e+02 2.700000e+02 1.800000e+02 2.700000e+02 1.800000e+02</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in print(lSF$phi[idx]):</span> object 'lSF' not found</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
