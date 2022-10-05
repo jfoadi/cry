@@ -1,3 +1,7 @@
+## Submission of version 0.5.1
+This is the first release after a long time. Prompted mostly by request due to a failure from CRAN and M. Maechler (for R-devel).
+With this ersion I have also experiences GitHub Actions for the first time.
+
 ## Submission of version 0.5.0
 After first release in CRAN, this is the version containing many more functions and improvements.
 

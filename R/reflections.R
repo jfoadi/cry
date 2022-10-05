@@ -3534,7 +3534,7 @@ sysabs  <- function(hkl,SG) {
 #' @export
 change_COLSRC <- function(hdr) {
   # Get date and time from system
-  tt <- strsplit(as.character(Sys.time())," ")[[1]]
+  tt <- strsplit(format(Sys.time())," ")[[1]]
   ss <- strsplit(tt[1],"-")[[1]]
   g <- paste0(ss[3],"/",ss[2],"/",ss[1])
   stmp <- paste0("CREATED_",g,"_",tt[2])

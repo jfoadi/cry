@@ -1,8 +1,8 @@
 Package: cry
 Type: Package
 Title: Statistics for Structural Crystallography
-Version: 0.5.0
-Date: 2021-05-10
+Version: 0.5.1
+Date: 2022-10-05
 Authors@R: c(
 	person("James","Foadi",email="james_foadi@yahoo.co.uk",role=c("cre","aut")),
 	person("David","Waterman",email="david.waterman@stfc.ac.uk",role="aut"),
@@ -15,10 +15,10 @@ Description: Reading and writing of files in the most commonly used formats of
   (2011) <doi:10.1107/S0108767311084303>.
 License: GPL-2
 LazyLoad: yes
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
 VignetteBuilder: knitr
 Encoding: UTF-8
-Depends: R (>= 3.6.0)
+Depends: R (>= 4.2.0)
 Imports:
     methods,
     zoo,
