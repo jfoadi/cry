@@ -1,8 +1,8 @@
 Package: cry
 Type: Package
 Title: Statistics for Structural Crystallography
-Version: 0.5.1
-Date: 2022-10-05
+Version: 0.5.1.9000
+Date: 2022-10-11
 Authors@R: c(
 	person("James","Foadi",email="james_foadi@yahoo.co.uk",role=c("cre","aut")),
 	person("David","Waterman",email="david.waterman@stfc.ac.uk",role="aut"),

@@ -737,7 +737,8 @@ avei_vs_res <- function(nbin,resos,II=NULL,m=max(resos),M=min(resos))
   headerLoc <- readBin(f,"integer",n=1,size=4)
 
   # Machine stamp
-  machineStamp <- readChar(f,4) # number formats of the
+  #machineStamp <- readChar(f,4) # number formats of the
+  machineStamp <- readChar(f,2) # number formats of the
                                 # architecture f was written on
 
   # If machineStamp != "DA" re-read headerLoc with big endian
