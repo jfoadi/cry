@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">cry</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.1.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -113,7 +113,6 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">filename</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">datadir</span>,<span class="st">"1dei_phases.mtz"</span><span class="op">)</span></span>
 <span><span class="va">objMTZ</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readMTZ.html">readMTZ</a></span><span class="op">(</span><span class="va">filename</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning in readChar(f, 4): truncating string with embedded nuls</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">objMTZ</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "list"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">objMTZ</span><span class="op">)</span></span>
@@ -354,22 +353,22 @@ A merged MTZ file stores reflections x-ray data in a hierarchical way. The main 
 <span><span class="co"># New COLSRC</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">hdr</span><span class="op">$</span><span class="va">COLSRC</span><span class="op">)</span></span>
 <span><span class="co">#&gt;         labels                     created id</span></span>
-<span><span class="co">#&gt; 1            H CREATED_05/10/2022_12:58:51  0</span></span>
-<span><span class="co">#&gt; 2            K CREATED_05/10/2022_12:58:51  0</span></span>
-<span><span class="co">#&gt; 3            L CREATED_05/10/2022_12:58:51  0</span></span>
-<span><span class="co">#&gt; 4           FP CREATED_05/10/2022_12:58:51  1</span></span>
-<span><span class="co">#&gt; 5        SIGFP CREATED_05/10/2022_12:58:51  1</span></span>
-<span><span class="co">#&gt; 6           FC CREATED_05/10/2022_12:58:51  1</span></span>
-<span><span class="co">#&gt; 7         PHIC CREATED_05/10/2022_12:58:51  1</span></span>
-<span><span class="co">#&gt; 8       FC_ALL CREATED_05/10/2022_12:58:51  1</span></span>
-<span><span class="co">#&gt; 9     PHIC_ALL CREATED_05/10/2022_12:58:51  1</span></span>
-<span><span class="co">#&gt; 10         FWT CREATED_05/10/2022_12:58:51  1</span></span>
-<span><span class="co">#&gt; 11        PHWT CREATED_05/10/2022_12:58:51  1</span></span>
-<span><span class="co">#&gt; 12      DELFWT CREATED_05/10/2022_12:58:51  1</span></span>
-<span><span class="co">#&gt; 13     PHDELWT CREATED_05/10/2022_12:58:51  1</span></span>
-<span><span class="co">#&gt; 14         FOM CREATED_05/10/2022_12:58:51  1</span></span>
-<span><span class="co">#&gt; 15   FC_ALL_LS CREATED_05/10/2022_12:58:51  1</span></span>
-<span><span class="co">#&gt; 16 PHIC_ALL_LS CREATED_05/10/2022_12:58:51  1</span></span></code></pre></div>
+<span><span class="co">#&gt; 1            H CREATED_11/10/2022_15:53:30  0</span></span>
+<span><span class="co">#&gt; 2            K CREATED_11/10/2022_15:53:30  0</span></span>
+<span><span class="co">#&gt; 3            L CREATED_11/10/2022_15:53:30  0</span></span>
+<span><span class="co">#&gt; 4           FP CREATED_11/10/2022_15:53:30  1</span></span>
+<span><span class="co">#&gt; 5        SIGFP CREATED_11/10/2022_15:53:30  1</span></span>
+<span><span class="co">#&gt; 6           FC CREATED_11/10/2022_15:53:30  1</span></span>
+<span><span class="co">#&gt; 7         PHIC CREATED_11/10/2022_15:53:30  1</span></span>
+<span><span class="co">#&gt; 8       FC_ALL CREATED_11/10/2022_15:53:30  1</span></span>
+<span><span class="co">#&gt; 9     PHIC_ALL CREATED_11/10/2022_15:53:30  1</span></span>
+<span><span class="co">#&gt; 10         FWT CREATED_11/10/2022_15:53:30  1</span></span>
+<span><span class="co">#&gt; 11        PHWT CREATED_11/10/2022_15:53:30  1</span></span>
+<span><span class="co">#&gt; 12      DELFWT CREATED_11/10/2022_15:53:30  1</span></span>
+<span><span class="co">#&gt; 13     PHDELWT CREATED_11/10/2022_15:53:30  1</span></span>
+<span><span class="co">#&gt; 14         FOM CREATED_11/10/2022_15:53:30  1</span></span>
+<span><span class="co">#&gt; 15   FC_ALL_LS CREATED_11/10/2022_15:53:30  1</span></span>
+<span><span class="co">#&gt; 16 PHIC_ALL_LS CREATED_11/10/2022_15:53:30  1</span></span></code></pre></div>
 <p>Once all changes have been done, the list components are ready to be saved out to a new MTZ file called, in this specific instance, “new.mtz”.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Temporary directory for output</span></span>
@@ -382,7 +381,6 @@ A merged MTZ file stores reflections x-ray data in a hierarchical way. The main 
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Read data from "new.mtz"</span></span>
 <span><span class="va">newMTZ</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readMTZ.html">readMTZ</a></span><span class="op">(</span><span class="va">fname</span>,<span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning in readChar(f, 4): truncating string with embedded nuls</span></span>
 <span><span class="co">#&gt; [1] "COLUMN  H                             H                 0                11    0"</span></span>
 <span><span class="co">#&gt; [1] "COLUMN  K                             H                 0                11    0"</span></span>
 <span><span class="co">#&gt; [1] "COLUMN  L                             H                 0                 4    0"</span></span>

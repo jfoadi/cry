@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">cry</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.1.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -97,9 +97,8 @@ list with human-readable character strings which detail key symmetry information
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># This is the full information for space group number 19, P 21 21 21</span></span></span>
-<span class="r-in"><span><span class="va">SG</span> <span class="op">&lt;-</span> <span class="fu"><a href="translate_SG.html">translate_SG</a></span><span class="op">(</span><span class="fl">19</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">SG</span> <span class="op">&lt;-</span> <span class="fu"><a href="translate_SG.html">translate_SG</a></span><span class="op">(</span><span class="fl">19</span><span class="op">)</span><span class="op">$</span><span class="va">msg</span></span></span>
 <span class="r-in"><span><span class="va">ltmp</span> <span class="op">&lt;-</span> <span class="fu">extract_symmetry_info</span><span class="op">(</span><span class="va">SG</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>argument 'pattern' has length &gt; 1 and only the first element will be used</span>
 <span class="r-in"><span><span class="va">ltmp</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $NUMBER</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "number  19"</span>
