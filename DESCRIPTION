@@ -27,4 +27,5 @@ Suggests:
     knitr,
     rmarkdown,
     markdown
-URL: https://jfoadi.github.io/cry/
+URL: https://jfoadi.github.io/cry/, https://github.com/jfoadi/cry
+BugReports: https://github.com/jfoadi/cry/issues
