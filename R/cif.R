@@ -24,6 +24,7 @@
 readCIF <- function(filename, message=FALSE){
   f <- file(filename)
   lcif <- readLines(f,warn=FALSE)
+  if (tail(lcif, 1) != "") lcif <- c(lcif, "")
   l_list <- grep("loop_",lcif)
   l_list1 <- append(l_list,length(lcif))
   mat<-zoo::rollapply(l_list1, 2,stack)
