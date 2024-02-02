@@ -7,7 +7,7 @@ Authors@R: c(
 	person("James","Foadi",email="james_foadi@yahoo.co.uk",role=c("cre","aut")),
 	person("David","Waterman",email="david.waterman@stfc.ac.uk",role="aut"),
 	person("Rita","Giordano",email="rgiordano@gmx.com",role="aut"),
-	person("Kutumbarao","Nidamarthi",email="kuttu.nani@gmail.com",role="aut"))
+	person("Kutumbarao","Nidamarthi",email="kuttu.nani@gmail.com",role=c("cre",aut"))
 Description: Reading and writing of files in the most commonly used formats of
   structural crystallography. It includes functions to work with a variety
   of statistics used in this field and functions to perform basic
