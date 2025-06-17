@@ -4,10 +4,11 @@ Title: Statistics for Structural Crystallography
 Version: 0.5.1.9000
 Date: 2022-10-11
 Authors@R: c(
-	person("James","Foadi",email="james_foadi@yahoo.co.uk",role=c("cre","aut")),
+	person("James","Foadi",email="james_foadi@yahoo.co.uk",role=c("aut","cre")),
 	person("David","Waterman",email="david.waterman@stfc.ac.uk",role="aut"),
 	person("Rita","Giordano",email="rgiordano@gmx.com",role="aut"),
-	person("Kutumbarao","Nidamarthi",email="kuttu.nani@gmail.com",role=c("cre",aut"))
+	person("Kutumbarao","Nidamarthi",email="kuttu.nani@gmail.com",role="aut")
+	)
 Description: Reading and writing of files in the most commonly used formats of
   structural crystallography. It includes functions to work with a variety
   of statistics used in this field and functions to perform basic
@@ -15,7 +16,7 @@ Description: Reading and writing of files in the most commonly used formats of
   (2011) <doi:10.1107/S0108767311084303>.
 License: GPL-2
 LazyLoad: yes
-RoxygenNote: 7.2.1
+RoxygenNote: 7.3.2
 VignetteBuilder: knitr
 Encoding: UTF-8
 Depends: R (>= 3.6.0)
