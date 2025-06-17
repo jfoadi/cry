@@ -1,4 +1,4 @@
-# Workflow suggested by ChatGPT (after corrections)
+# Workflow suggested by ChatGPT (after corrections ...)
 name: Deploy pkgdown site
 
 on:
