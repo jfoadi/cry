@@ -389,7 +389,7 @@ check_angle_validity <- function(x,message=FALSE) {
   ltmp <- attributes(x)
   ans <- "rad_flag" %in% names(ltmp)
   if (!ans) {
-    msg <- "This object has no 'rad_flag' attribute.\n"
+    msg <- "This object has no rad_flag attribute.\n"
     if (message) cat(msg)
 
     return(ans)
@@ -450,7 +450,7 @@ check_bravais_validity <- function(x,message=FALSE) {
   ltmp <- names(x)
   ans <- "bt" %in% ltmp
   if (!ans) {
-    msg <- "This object has no 'bt' attribute.\n"
+    msg <- "This object has no bt attribute.\n"
     if (message) cat(msg)
 
     return(ans)
@@ -472,7 +472,7 @@ check_bravais_validity <- function(x,message=FALSE) {
   # Check on crystal family
   ans <- "cr_fam" %in% ltmp
   if (!ans) {
-    msg <- "This object has no 'cr_fam' attribute.\n"
+    msg <- "This object has no cr_fam attribute.\n"
     if (message) cat(msg)
 
     return(ans)
@@ -491,7 +491,7 @@ check_bravais_validity <- function(x,message=FALSE) {
   # Check on crystal system
   ans <- "cr_sys" %in% ltmp
   if (!ans) {
-    msg <- "This object has no 'cr_sys' attribute.\n"
+    msg <- "This object has no cr_sys attribute.\n"
     if (message) cat(msg)
 
     return(ans)
@@ -510,7 +510,7 @@ check_bravais_validity <- function(x,message=FALSE) {
   # Check on lattice system
   ans <- "lt_sys" %in% ltmp
   if (!ans) {
-    msg <- "This object has no 'lt_sys' attribute.\n"
+    msg <- "This object has no lt_sys attribute.\n"
     if (message) cat(msg)
 
     return(ans)
