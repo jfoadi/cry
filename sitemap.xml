@@ -1,243 +1,83 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://jfoadi.github.io/cry/404.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/articles/MTZ.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/articles/SHELX.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/articles/XDS.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/index.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/angle.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/avei_vs_res.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/bravais.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/calculate_cell_volume.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/calculate_cell_volume.rec_unit_cell.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/calculate_cell_volume.unit_cell.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/change_COLSRC.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/check_angle_validity.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/check_bravais_validity.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/check_cryst_symm_validity.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/check_merged_reflections_validity.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/check_rec_unit_cell_validity.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/check_unit_cell_validity.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/check_validity.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/create_merged_reflections.default.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/create_merged_reflections.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/create_rec_unit_cell.bravais.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/create_rec_unit_cell.cryst_symm.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/create_rec_unit_cell.default.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/create_rec_unit_cell.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/create_rec_unit_cell.unit_cell.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/create_unit_cell.bravais.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/create_unit_cell.cryst_symm.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/create_unit_cell.default.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/create_unit_cell.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/create_unit_cell.rec_unit_cell.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/cryst_symm.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/crystal_family.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/crystal_system.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/deplete_systematic_absences.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/extract_symmetry_info.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/findHM.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/find_symm_setting.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/frac_to_orth.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/full_symm_strings.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/generate_miller.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/hkl_to_reso.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/lattice_stuff.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/lowest_uc_compatible_SG.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/merged_reflections.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/num_symm_settings.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/op_xyz_list_to_matrix_list.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/op_xyz_to_matrix.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/orth_to_frac.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/plot_SHELX.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/print.angle.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/print.bravais.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/print.cryst_symm.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/print.rec_unit_cell.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/print.unit_cell.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/readCIF.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/readMM_CIF.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/readMTZ.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/readMTZHeader.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/readSF_CIF.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/readXDS_ASCII.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/readXDS_ASCIIHeader.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/read_SHELX_log.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/readpd_rtv.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/readsm_REFL.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/rec_unit_cell.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/syminfo_to_matrix_list.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/syminfo_to_op_xyz_list.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/symm_to_cell_const.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/sysabs.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/theme_cry.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/translate_SG.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/unit_cell.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/writeMTZ.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/writeXDS_ASCII.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/xtal_mat01.html</loc>
-  </url>
-  <url>
-    <loc>https://jfoadi.github.io/cry/reference/xtal_mat02.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://jfoadi.github.io/cry/404.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/articles/MTZ.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/articles/SHELX.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/articles/XDS.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/articles/index.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/authors.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/index.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/angle.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/avei_vs_res.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/bravais.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/calculate_cell_volume.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/calculate_cell_volume.rec_unit_cell.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/calculate_cell_volume.unit_cell.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/change_COLSRC.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/check_angle_validity.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/check_bravais_validity.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/check_cryst_symm_validity.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/check_merged_reflections_validity.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/check_rec_unit_cell_validity.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/check_unit_cell_validity.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/check_validity.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/create_merged_reflections.default.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/create_merged_reflections.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/create_rec_unit_cell.bravais.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/create_rec_unit_cell.cryst_symm.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/create_rec_unit_cell.default.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/create_rec_unit_cell.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/create_rec_unit_cell.unit_cell.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/create_unit_cell.bravais.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/create_unit_cell.cryst_symm.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/create_unit_cell.default.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/create_unit_cell.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/create_unit_cell.rec_unit_cell.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/cryst_symm.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/crystal_family.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/crystal_system.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/deplete_systematic_absences.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/extract_symmetry_info.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/findHM.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/find_symm_setting.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/frac_to_orth.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/full_symm_strings.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/generate_miller.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/hkl_to_reso.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/index.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/lattice_stuff.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/lowest_uc_compatible_SG.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/merged_reflections.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/num_symm_settings.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/op_xyz_list_to_matrix_list.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/op_xyz_to_matrix.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/orth_to_frac.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/plot_SHELX.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/print.angle.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/print.bravais.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/print.cryst_symm.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/print.rec_unit_cell.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/print.unit_cell.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/readCIF.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/readMM_CIF.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/readMTZ.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/readMTZHeader.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/readSF_CIF.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/readXDS_ASCII.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/readXDS_ASCIIHeader.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/read_SHELX_log.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/readpd_rtv.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/readsm_REFL.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/rec_unit_cell.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/syminfo_to_matrix_list.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/syminfo_to_op_xyz_list.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/symm_to_cell_const.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/sysabs.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/theme_cry.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/translate_SG.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/unit_cell.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/writeMTZ.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/writeXDS_ASCII.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/xtal_mat01.html</loc></url>
+<url><loc>https://jfoadi.github.io/cry/reference/xtal_mat02.html</loc></url>
 </urlset>
+
