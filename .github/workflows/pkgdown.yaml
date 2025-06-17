@@ -1,4 +1,4 @@
-# Workflow suggested by ChatGPT
+# Workflow suggested by ChatGPT (after corrections)
 on:
   push:
     branches: [main, master]
