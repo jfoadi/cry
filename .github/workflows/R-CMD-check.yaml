@@ -50,14 +50,14 @@ jobs:
 
       - name: Debugging step
         run: |
-        echo "R version:"
-        Rscript -e 'print(R.version.string)'
-        echo "Installed packages:"
-        Rscript -e 'print(installed.packages()[,c("Package","Version")])'
-        echo "Current working directory and contents:"
-        pwd
-        ls -al
-        echo "Environment variables:"
-        printenv
-        echo "Listing objects in global environment:"
-        Rscript -e 'print(ls())'
+          echo "R version:"
+          Rscript -e 'print(R.version.string)'
+          echo "Installed packages:"
+          Rscript -e 'print(installed.packages()[,c("Package","Version")])'
+          echo "Current working directory and contents:"
+          pwd
+          ls -al
+          echo "Environment variables:"
+          printenv
+          echo "Listing objects in global environment:"
+          Rscript -e 'print(ls())'
