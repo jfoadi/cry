@@ -113,7 +113,7 @@ merged_reflections <- function(ruc=NULL,csym=NULL,
     ans <- check_rec_unit_cell_validity(ruc)
     if (!ans) {
       msg <- paste("Input is not a valid object",
-                   "of class 'rec_unit_cell'.\n")
+                   "of class rec_unit_cell.\n")
       cat(msg)
 
       return(NULL)
@@ -169,7 +169,7 @@ merged_reflections <- function(ruc=NULL,csym=NULL,
     ans2 <- check_cryst_symm_validity(csym)
     if (!ans1 & ans2) {
       msg <- paste("First input is not a valid object",
-                   "of class 'rec_unit_cell'.\n")
+                   "of class rec_unit_cell.\n")
       cat(msg)
 
       return(NULL)
@@ -330,7 +330,7 @@ merged_reflections <- function(ruc=NULL,csym=NULL,
 #'
 #' @param x An object of class "merged_reflections".
 #' @param ... Additional arguments passed to the print methods
-#' @return No values. A message is displayed which includes
+#' @return Nothing. A message is displayed which includes
 #'         information on the reflections contained in this object
 #'         and the crystal structure they relate to.
 #'

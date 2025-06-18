@@ -314,7 +314,7 @@ rec_unit_cell <- function(ar=NULL,br=NULL,cr=NULL,aar=NULL,bbr=NULL,ccr=NULL) {
 #'
 #' @param x An object of class "unit_cell".
 #' @param ... Additional arguments passed to the print methods
-#' @return No values. A message is displayed which includes
+#' @return Nothing. A message is displayed which includes
 #'         information on the unit cell.
 #'
 #' @examples
@@ -343,7 +343,7 @@ print.unit_cell <- function(x,...) {
 #'
 #' @param x An object of class "rec_unit_cell".
 #' @param ... Additional arguments passed to the print methods
-#' @return No values. A message is displayed which includes
+#' @return Nothing. A message is displayed which includes
 #'         information on the reciprocal unit cell.
 #'
 #' @examples
