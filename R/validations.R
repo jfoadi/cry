@@ -1280,7 +1280,7 @@ check_merged_reflections_validity <- function(x,message=FALSE) {
   # Check records
   ans <- is(x$records,"data.frame")
   if (!ans) {
-    msg <- paste("'records' is not a valid object",
+    msg <- paste("records is not a valid object",
                  "of class data.frame.\n")
     if (message) cat(msg)
 
@@ -1290,7 +1290,7 @@ check_merged_reflections_validity <- function(x,message=FALSE) {
   # Check 'records' has at least 3 columns
   ans <- length(x$records[1,]) >= 3
   if (!ans) {
-    msg <- paste("'records' must have at least 3 columns,",
+    msg <- paste("records must have at least 3 columns,",
                  "the 3 Miller indices, H, K, L.\n")
     if (message) cat(msg)
 
@@ -1300,8 +1300,8 @@ check_merged_reflections_validity <- function(x,message=FALSE) {
   # Check dtypes
   ans <- is(x$dtypes,"character")
   if (!ans) {
-    msg <- paste("'dtypes' is not of a valid object",
-                   "of class 'character'.\n")
+    msg <- paste("dtypes is not of a valid object",
+                   "of class character.\n")
     if (message) cat(msg)
 
     return(ans)
@@ -1312,7 +1312,7 @@ check_merged_reflections_validity <- function(x,message=FALSE) {
                "K","M","E","P","W","A","B","I","R")
   for (dt in x$dtypes) {
     if (!(dt %in% Vdtypes)) {
-      msg <- "One or more 'dtypes' are not recognised.\n"
+      msg <- "One or more dtypes are not recognised.\n"
       if (message) cat(msg)
       ans <- FALSE
 
@@ -1323,8 +1323,8 @@ check_merged_reflections_validity <- function(x,message=FALSE) {
   # Number of columns = length(dtypes)
   if (ncol(x$records) != length(x$dtypes)) {
     ans <- FALSE
-    msg <- paste("Number of columns of 'records' must be",
-                 "equal to length of 'dtypes'.\n")
+    msg <- paste("Number of columns of records must be",
+                 "equal to length of dtypes.\n")
     if (message) cat(msg)
 
     return(ans)
@@ -1334,8 +1334,8 @@ check_merged_reflections_validity <- function(x,message=FALSE) {
   ans <- (x$dtypes[1] == "H" & x$dtypes[2] == "H" &
             x$dtypes[3] == "H")
   if (!ans) {
-    msg <- paste("The first three columns of 'records' has",
-                 "to be of dtypes 'H'.\n")
+    msg <- paste("The first three columns of records has",
+                 "to be of dtypes H.\n")
     if (message) cat(msg)
 
     return(ans)
@@ -1357,7 +1357,7 @@ check_merged_reflections_validity <- function(x,message=FALSE) {
   if (length(aidx) != length(x$records[,1])) {
     ans <- FALSE
     msg <- paste("Systematic absences are presents in",
-                 "'records'.\n")
+                 "records.\n")
     if (message) cat(msg)
 
     return(ans)

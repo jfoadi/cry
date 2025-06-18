@@ -1176,7 +1176,7 @@ generate_miller <- function(uc,SG,reso) {
   # check input
   ans <- check_unit_cell_validity(uc)
   if (!ans) {
-    msg <- "'uc' is not a valid 'unit_cell' object.\n"
+    msg <- "uc is not a valid unit_cell object.\n"
     cat(msg)
 
     return(NULL)
