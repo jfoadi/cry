@@ -39,7 +39,7 @@ jobs:
       - name: Cache R packages
         uses: actions/cache@v3
         with:
-          path: ${{ env.R_USER_LIBS }}
+          path: /home/runner/work/_temp/Library
           key: ${{ runner.os }}-r-${{ matrix.config.r }}-${{ hashFiles('**/DESCRIPTION') }}
           restore-keys: ${{ runner.os }}-r-${{ matrix.config.r }}-
 
