@@ -47,9 +47,3 @@ jobs:
         uses: r-lib/actions/check-r-package@v2
         with:
           args: "--no-manual --as-cran"
-
-      - name: Upload check logs
-        uses: actions/upload-artifact@v4
-        with:
-          name: Rcheck-logs
-          path: cry.Rcheck/
