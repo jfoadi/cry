@@ -19,7 +19,7 @@ LazyLoad: yes
 RoxygenNote: 7.3.2
 VignetteBuilder: knitr
 Encoding: UTF-8
-Depends: R (>= 3.6.0)
+Depends: R (>= 4.5.0)
 Imports:
     methods,
     zoo,

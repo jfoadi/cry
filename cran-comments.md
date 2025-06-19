@@ -1,5 +1,5 @@
 ## Submission of version 0.5.2
-Release was prompted after a warning that a ggplot2 feature was going to change. A warning from R CMD check with --as-cran option complains about an error accessing https://www.iucr.org/
+Triggered by ggplot2 being changed. Also, sorted a few small issues.
 ## Submission of version 0.5.1
 This is the first release after a long time. Prompted mostly by request due to a failure from CRAN and M. Maechler (for R-devel).
 With this version I have also experienced GitHub Actions for the first time.
