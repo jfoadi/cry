@@ -1,5 +1,11 @@
 ## Submission of version 0.5.2
 Triggered by ggplot2 being changed. Also, sorted a few small issues.
+No notes.
+GitHub Actions failed on something not reproduced locally (with --as-cran, and both on RStudio bash shell and VSCode bash shell). So it's likely to be a problem with GitHub Actions.
+# Test environments
+- local Windows 11 install, R 4.5.1
+- GitHub Actions: Windows, macOS, Ubuntu.
+
 ## Submission of version 0.5.1
 This is the first release after a long time. Prompted mostly by request due to a failure from CRAN and M. Maechler (for R-devel).
 With this version I have also experienced GitHub Actions for the first time.
